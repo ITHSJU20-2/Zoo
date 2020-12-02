@@ -23,6 +23,8 @@ public class AnimalController {
         Animal pigeon = new Pigeon("Pigeon", Arrays.asList(Food.BERRY, Food.VEGETABLE), 0, true, "kurrkurr");
         Animal eagle = new Eagle("Eagle", Collections.singletonList(Food.VEGETABLE), 0, true, "skreaaaaagh");
         Animal ostrich = new Ostrich("Ostrich", Collections.singletonList(Food.FRUIT), 0, false, "???");
+
+        // Add all the animals to the list
         animals.addAll(Arrays.asList(pigeon, eagle, ostrich));
     }
 
