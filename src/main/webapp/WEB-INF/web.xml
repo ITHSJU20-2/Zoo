@@ -16,4 +16,24 @@
         <url-pattern>/animal/*</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Feed</servlet-name>
+        <servlet-class>se.iths.grupp2.animals.server.FeedPost</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Feed</servlet-name>
+        <url-pattern>/feed</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Pet</servlet-name>
+        <servlet-class>se.iths.grupp2.animals.server.PetPost</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Pet</servlet-name>
+        <url-pattern>/pet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

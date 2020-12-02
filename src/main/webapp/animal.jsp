@@ -1,4 +1,6 @@
-<%--
+<%@ page import="se.iths.grupp2.animals.Main" %>
+<%@ page import="se.iths.grupp2.animals.Animal" %>
+<%@ page import="se.iths.grupp2.animals.Food" %><%--
   User: tobiaswadseth
   Date: 2020-11-30
 --%>
@@ -9,9 +11,13 @@
 </head>
 <body>
 <%
-    String animal = request.getPathInfo().split("/")[1];
+    Animal animal = Main.getController().getAnimalByName(request.getPathInfo().split("/")[1]);
 %>
-<h1><%=animal%></h1>
+<h1><%=animal.getName()%></h1>
+<p>Experience: <%=animal.getXp()%> / 10,000</p>
+<p>I like: <%for (Food food : animal.getLikes()) {%>
+        <%=food.toString().toLowerCase()%>
+    <%}%></p>
 <br>
 
 <a href="../">Back</a>
