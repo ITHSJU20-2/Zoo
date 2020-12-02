@@ -3,8 +3,14 @@ package se.iths.grupp2.animals;
 import java.util.List;
 
 public class Orangutan extends Ape {
-    public Orangutan(String name, List likes, int xp, int size, String colour) {
+    private static String liked;
+    public Orangutan(String name, List likes, int xp, int size, String colour, String liked) {
         super(name, likes, xp, size, colour);
+        liked = "I prefer tacos, but this'll do.";
+    }
+
+    public static String getLiked() {
+        return liked;
     }
 
     public void pet() {

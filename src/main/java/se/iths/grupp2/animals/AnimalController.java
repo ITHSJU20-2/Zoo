@@ -20,9 +20,9 @@ public class AnimalController {
 
     public void loadAnimals() {
         // Create all the animals in here and add to the list
-        Animal gorilla = new Gorilla("Gorilla", Collections.singletonList(Food.FRUIT),0,0,"Silver");
-        Animal chimpanzee = new Chimpanzee("Chimpanzee",Collections.singletonList(Food.FRUIT),0,0,"Black");
-        Animal orangutan = new Orangutan("Orangutan",Collections.singletonList(Food.FRUIT),0,0,"Orange");
+        Animal gorilla = new Gorilla("Gorilla", Collections.singletonList(Food.FRUIT),0,0,"Silver",Gorilla.getLiked());
+        Animal chimpanzee = new Chimpanzee("Chimpanzee",Collections.singletonList(Food.FRUIT),0,0,"Black",Chimpanzee.getLiked());
+        Animal orangutan = new Orangutan("Orangutan",Collections.singletonList(Food.FRUIT),0,0,"Orange",Orangutan.getLiked());
         animals.addAll(Arrays.asList(gorilla,chimpanzee,orangutan));
     }
 
