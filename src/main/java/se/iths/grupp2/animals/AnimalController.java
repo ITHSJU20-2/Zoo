@@ -7,11 +7,11 @@ import java.util.List;
 
 public class AnimalController {
 
-    private final List<Animal> animals;
+    private List<Animal> animals;
 
     public AnimalController() {
         this.animals = new ArrayList<>();
-        loadAnimals();
+//        loadAnimals();
     }
 
     public List<Animal> getAnimals() {
@@ -49,4 +49,7 @@ public class AnimalController {
         return null;
     }
 
+    public void setAnimals(List<Animal> animals) {
+        this.animals = animals;
+    }
 }
