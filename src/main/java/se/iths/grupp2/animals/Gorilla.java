@@ -12,6 +12,7 @@ public class Gorilla extends Ape {
     }
 
     public void feed() {
+        setXp(getXp()+1);
         if (getXp() > 5) {
             System.out.println("I am the strongest of all apes. Admire my mighty growth.");
             setSize(getSize()+1);

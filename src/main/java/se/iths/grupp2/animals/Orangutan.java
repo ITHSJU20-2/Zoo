@@ -12,6 +12,7 @@ public class Orangutan extends Ape {
     }
 
     public void feed() {
+        setXp(getXp()+1);
         if (getXp() > 5) {
             System.out.println("I am the smartest of all the great apes. My brain grows ever more powerful...");
             setSize(getSize()+1);

@@ -12,6 +12,7 @@ public class Chimpanzee extends Ape{
     }
 
     public void feed() {
+        setXp(getXp()+1);
         if (getXp() > 5) {
             System.out.println("If I grow too big I may become too much to handle...");
             setSize(getSize()+1);
