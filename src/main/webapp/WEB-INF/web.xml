@@ -3,4 +3,17 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
+    <display-name>Zoo</display-name>
+
+    <servlet>
+        <servlet-name>Animal</servlet-name>
+        <jsp-file>/animal.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Animal</servlet-name>
+        <url-pattern>/animal/*</url-pattern>
+    </servlet-mapping>
+
 </web-app>
