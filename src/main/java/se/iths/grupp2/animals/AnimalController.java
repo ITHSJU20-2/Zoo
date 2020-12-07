@@ -1,8 +1,6 @@
 package se.iths.grupp2.animals;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class AnimalController {
@@ -11,23 +9,24 @@ public class AnimalController {
 
     public AnimalController() {
         this.animals = new ArrayList<>();
-//        loadAnimals();
     }
 
+    /**
+     * Getter for AnimalController#animals
+     *
+     * @return The animal list
+     */
     public List<Animal> getAnimals() {
         return animals;
     }
 
-    public void loadAnimals() {
-        // Create all the animals in here and add to the list
-        Animal pigeon = new Pigeon("Pigeon", Arrays.asList(Food.BERRY, Food.VEGETABLE), 0, true, "kurrkurr");
-        Animal eagle = new Eagle("Eagle", Collections.singletonList(Food.VEGETABLE), 0, true, "skreaaaaagh");
-        Animal ostrich = new Ostrich("Ostrich", Collections.singletonList(Food.FRUIT), 0, false, "???");
-
-        // Add all the animals to the list
-        animals.addAll(Arrays.asList(pigeon, eagle, ostrich));
-    }
-
+    /**
+     * Checks if the animal likes the food, if it does. Feed it and reward it 4 experience points.
+     *
+     * @param animal The animal to feed.
+     * @param food   The food to feed the animal.
+     * @return A boolean of whether the animal was fed due to it's food preferences.
+     */
     public boolean feed(Animal animal, Food food) {
         if (animal.getLikes().contains(food)) {
             animal.setXp(animal.getXp() + 4);
@@ -36,6 +35,11 @@ public class AnimalController {
         return false;
     }
 
+    /**
+     * Pets the animal and rewards it 1 experience point.
+     *
+     * @param animal The animal to pet.
+     */
     public void pet(Animal animal) {
         animal.setXp(animal.getXp() + 1);
     }
@@ -49,6 +53,11 @@ public class AnimalController {
         return null;
     }
 
+    /**
+     * Setter for AnimalController#animals
+     *
+     * @param animals The list to set the animal list to.
+     */
     public void setAnimals(List<Animal> animals) {
         this.animals = animals;
     }

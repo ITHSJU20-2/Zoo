@@ -14,11 +14,6 @@ public class FeedPost extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        /*
-        Body:
-            animal (name)
-            food
-         */
         Food food = Food.valueOf(req.getParameter("food").toUpperCase());
         Animal animal = Main.getController().getAnimalByName(req.getParameter("animal"));
         boolean liked = Main.getController().feed(animal, food);
