@@ -4,27 +4,38 @@ import java.util.List;
 
 public class Orangutan extends Ape {
     private static String liked;
-    public Orangutan(String name, List likes, int xp, int size, String colour, String liked) {
+    private static String tolerated;
+
+    public Orangutan(String name, List likes, int xp, int size, String colour) {
         super(name, likes, xp, size, colour);
-        liked = "I prefer tacos, but this'll do.";
+        liked = "Not bad, dude.";
+        tolerated = "I prefer tacos, but this'll do.";
     }
 
-    public static String getLiked() {
-        return liked;
+
+    public String pet() {
+        if (getXp() > 10) {
+            return "Clyde is my brother. You may have seen him with Clint Eastwood. So don't get too close.";
+        } else return "Come 'ere you!";
     }
 
-    public void pet() {
-        System.out.println("My name is " + getName() + ". Clyde is my brother. You may have seen him with Clint Eastwood. So don't get too close.");
-    }
 
-    public void feed() {
-        setXp(getXp()+1);
-        if (getXp() > 5) {
-            System.out.println("I am the smartest of all the great apes. My brain grows ever more powerful...");
-            setSize(getSize()+1);
-        } else
-        {
-            System.out.println("I'm still growing but my arms are still longer than yours.");
+    //different food has different XP??
+    public String feed() {
+        if (getLikes().contains(Food.FRUIT) || getLikes().contains(Food.VEGETABLE)) {
+            setXp(getXp() + 50);
+            setSize(getSize() + 5);
+            return liked;
+        } else if (getLikes().contains(Food.BERRY)) {
+            setXp(getXp() + 20);
+            setSize(getSize() + 2);
+            return tolerated;
+        }
+        if (getXp() > 50) {
+            return "My arms are a real conversation starter.";
+
+        } else {
+            return "I have room for improvement.";
         }
     }
 }

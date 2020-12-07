@@ -2,13 +2,12 @@ package se.iths.grupp2.animals;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
 
 class GorillaTest {
 
-    @Test
-    void getLiked() {
-    }
+    private Gorilla gorilla = new Gorilla("Gorilla", Arrays.asList(Food.MEAT, Food.FRUIT, Food.BERRY), 0, 0,
+            "Silver and black");
 
     @Test
     void pet() {
