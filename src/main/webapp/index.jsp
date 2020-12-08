@@ -20,6 +20,9 @@
     <option value="Eagle" data-animal="Eagle">Eagle</option>
     <option value="Ostrich" data-animal="Ostrich">Ostrich</option>
     <option value="Pigeon" data-animal="Pigeon">Pigeon</option>
+    <option value="Gorilla" data-animal="Gorilla">Gorilla</option>
+    <option value="Orangutan" data-animal="Orangutan">Orangutan</option>
+    <option value="Chimpanzee" data-animal="Chimpanzee">Chimpanzee</option>
 </select>
 <button class="add-animal">Add Animal</button>
 <button class="save">Save</button>

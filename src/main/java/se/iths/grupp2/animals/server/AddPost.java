@@ -38,7 +38,18 @@ public class AddPost extends HttpServlet {
                 break;
             // Marcus' Feline
             // Sean's Forest Creatures
-            // Thom's Apes
+            case "Gorilla":
+                animal = new Gorilla("Gorilla", Arrays.asList(Food.MEAT, Food.FRUIT, Food.BERRY), 0, 0,
+                        "Silver and black");
+                break;
+            case "Orangutan":
+                animal = new Orangutan("Orangutan", Arrays.asList(Food.VEGETABLE, Food.FRUIT, Food.BERRY),
+                        0, 0, "Orange");
+                break;
+            case "Chimpanzee":
+                animal = new Chimpanzee("Chimpanzee", Arrays.asList(Food.MEAT, Food.FRUIT, Food.BERRY),
+                        0, 0, "Black");
+                break;
             // Kabbe's Sea Creatures
             default:
                 throw new IllegalStateException("Unexpected value: " + animalName);
