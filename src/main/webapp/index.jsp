@@ -4,6 +4,7 @@
 --%>
 <%@ page import="se.iths.grupp2.animals.Animal" %>
 <%@ page import="se.iths.grupp2.animals.Main" %>
+<%@ page import="java.util.UUID" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -24,8 +25,9 @@
 <button class="save">Save</button>
 <a href="./settings.jsp" class="settings">Settings</a>
 
-<div class="animal-wrapper">
-</div>
+<div class="animal-wrapper d-flex flex-row flex-wrap"></div>
+
+<div class="alert-wrapper d-flex flex-column-reverse"></div>
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -46,8 +48,22 @@
     animalList.push("<%= animal.getName() %>");
     <% } %>
 
-    animalList.forEach(animal => {
+    const createAlert = (type, text) => {
+        const uuid = '<%=UUID.randomUUID().toString()%>';
+        const alertElem = document.createElement('div');
+        alertElem.id = uuid;
+        alertElem.classList.add('alert', 'alert-' + type, 'alert-dismissible', 'fade', 'show');
+        alertElem.innerHTML =
+            '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' + text;
 
+        document.querySelector('.alert-wrapper').appendChild(alertElem);
+
+        setTimeout(() => {
+            $('#' + uuid).alert('close');
+        }, 5000);
+    }
+
+    const createAnimalElem = (animal) => {
         let container = document.createElement('div');
         container.classList.add('animal-container');
         let title = document.createElement('div');
@@ -110,49 +126,52 @@
         container.appendChild(foodDropdown);
         container.appendChild(interactBtns);
         container.appendChild(viewBtn);
+
+        feedBtn.addEventListener('click', (e) => {
+            let animal = e.target.getAttribute('data-animal');
+            let food = $('.food-dropdown[data-animal="' + animal + '"]').val();
+            $.post('./feed', {animal: animal, food: food}, data => {
+                if (data === 'success') {
+                    createAlert('success', animal + ' has been fed with ' + food + '!');
+                } else if (data === 'error') {
+                    createAlert('danger', animal + ' does not like ' + food + '!');
+                }
+            });
+        });
+
+        petBtn.addEventListener('click', (e) => {
+            let animal = e.target.getAttribute('data-animal');
+            $.post('./pet', {animal: animal}, data => {
+                if (data === 'success') {
+                    createAlert('success', animal + ' has been pet!');
+                } else {
+                    createAlert('danger', animal + ' does not like to be touched there!');
+                }
+            });
+        });
+
         wrapper.appendChild(container);
+    }
+
+    animalList.forEach(animal => {
+        createAnimalElem(animal);
     });
 
 
     $('.save').click(e => {
         $.post('./save', {}, () => {
-            console.log("Saved");
-        })
-    });
-    $('.feed-btn').each(function () {
-        $(this).click(() => {
-            let animal = $(this).attr('data-animal');
-            let food = $('.food-dropdown[data-animal="' + animal + '"]').val();
-            $.post('./feed', {animal: animal, food: food}, data => {
-                if (data === 'success') {
-                    console.log(animal + ' has been fed with ' + food);
-                } else if (data === 'error') {
-                    console.log(animal + ' does not like ' + food);
-                }
-            });
-        })
-    });
-    $('.pet-btn').each(function () {
-        $(this).click(() => {
-            let animal = $(this).attr('data-animal');
-            $.post('./pet', {animal: animal}, data => {
-                if (data === 'success') {
-                    console.log(animal + ' has been pet');
-                } else {
-                    console.log(animal + ' does not like to be touched there');
-                }
-            });
+            createAlert('success', 'The game has been saved!')
         })
     });
     $('.add-animal').click(() => {
         let animal = $('.animal-dropdown').val();
         $.post('./add', {animal: animal}, data => {
             if (data === 'success') {
-                console.log(animal + ' has been added');
+                createAnimalElem(animal);
+                createAlert('success', animal + ' has been added!');
             } else {
-                console.log(animal + ' could not be added');
+                createAlert('danger', animal + ' could not be added!');
             }
-            window.location.reload();
         });
     });
 </script>
