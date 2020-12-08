@@ -28,7 +28,6 @@
         })
     });
     $('.load').click(e => {
-        console.log($('.editjsongame').val());
         $.post('./load', {data: $('.editjsongame').val()}, () => {
             console.log('Loaded');
             $('.jsongame').val($('.editjsongame').val());

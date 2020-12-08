@@ -42,7 +42,7 @@
 
     <servlet>
         <servlet-name>Add</servlet-name>
-        <servlet-class>se.iths.grupp2.animals.server.AddPigeon</servlet-class>
+        <servlet-class>se.iths.grupp2.animals.server.AddPost</servlet-class>
     </servlet>
 
     <servlet-mapping>

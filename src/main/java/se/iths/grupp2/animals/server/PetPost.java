@@ -13,7 +13,7 @@ public class PetPost extends HttpServlet {
 
     /*
      * From the post body we get the name of the animal in a string and convert it into the respective animal.
-     * Then the pet method on the animal. Then returns the message of "success" to the webpage.
+     * Then the pet method is run using the animal. Then returns the message of "success" to the webpage.
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
