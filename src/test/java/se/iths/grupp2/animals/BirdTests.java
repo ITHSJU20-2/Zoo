@@ -17,7 +17,7 @@ class BirdTests {
     @Test
     public void feedEagle() {
         Main.getController().feed(eagle, Food.FRUIT);
-        assertEquals(3, eagle.getXp());
+        assertEquals(4, eagle.getXp());
     }
 
     @Test
