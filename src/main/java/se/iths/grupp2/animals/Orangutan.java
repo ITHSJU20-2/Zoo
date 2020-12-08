@@ -15,23 +15,26 @@ public class Orangutan extends Ape {
 
     public String pet() {
         if (getXp() > 10) {
+            setXp(getXp() + 1);
             return "Clyde is my brother. You may have seen him with Clint Eastwood. So don't get too close.";
-        } else return "Come 'ere you!";
+        } else
+            setXp(getXp() + 2);
+        return "Come 'ere you!";
     }
 
 
     //different food has different XP??
-    public String feed() {
-        if (getLikes().contains(Food.FRUIT) || getLikes().contains(Food.VEGETABLE)) {
-            setXp(getXp() + 50);
-            setSize(getSize() + 5);
+    public String feed(Food Food) {
+        if ((Food == se.iths.grupp2.animals.Food.VEGETABLE) || (Food == se.iths.grupp2.animals.Food.FRUIT)) {
+            setXp(getXp() + 45);
+            setSize(getSize() + 4);
             return liked;
-        } else if (getLikes().contains(Food.BERRY)) {
-            setXp(getXp() + 20);
-            setSize(getSize() + 2);
+        } else if (Food == se.iths.grupp2.animals.Food.BERRY) {
+            setXp(getXp() + 15);
+            setSize(getSize() + 1);
             return tolerated;
         }
-        if (getXp() > 50) {
+        if (getSize() > 5) {
             return "My arms are a real conversation starter.";
 
         } else {

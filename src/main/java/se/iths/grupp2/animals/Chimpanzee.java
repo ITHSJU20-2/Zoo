@@ -15,22 +15,25 @@ public class Chimpanzee extends Ape {
 
     public String pet() {
         if (getXp() > 10) {
+            setXp(getXp() + 2);
             return "If I felt like it, I could destroy you. Go watch Planet of the Apes.";
-        } else return "I like you, haven't felt this loved since I met Michael Jackson!";
+        } else
+            setXp(getXp() + 4);
+        return "I like you, haven't felt this loved since I met Michael Jackson!";
     }
 
 
-    public String feed() {
-        if (getLikes().contains(Food.FRUIT) || getLikes().contains(Food.BERRY)) {
-            setXp(getXp() + 50);
-            setSize(getSize() + 5);
-            return liked;
-        } else if (getLikes().contains(Food.MEAT)) {
-            setXp(getXp() + 20);
+    public String feed(Food Food) {
+        if ((Food == se.iths.grupp2.animals.Food.FRUIT) || (Food == se.iths.grupp2.animals.Food.BERRY)) {
+            setXp(getXp() + 40);
             setSize(getSize() + 2);
+            return liked;
+        } else if (Food == se.iths.grupp2.animals.Food.MEAT) {
+            setXp(getXp() + 10);
+            setSize(getSize() + 1);
             return tolerated;
         }
-        if (getXp() > 50) {
+        if (getSize() > 5) {
             return "If I grow too big I may become too much to handle...";
 
         } else {

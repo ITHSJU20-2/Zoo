@@ -16,21 +16,23 @@ public class Gorilla extends Ape {
     public String pet() {
         if (getXp() > 10) {
             return "Dude, really? Petting me? The mighty " + getName() + "? You got a death wish?!";
-        } else return "Thank you!";
+        } else
+            setXp(getXp() + 1);
+        return "Thank you!";
     }
 
     //different food has different XP??
-    public String feed() {
-        if (getLikes().contains(Food.MEAT) || getLikes().contains(Food.FRUIT)) {
+    public String feed(Food Food) {
+        if ((Food == se.iths.grupp2.animals.Food.MEAT) || (Food == se.iths.grupp2.animals.Food.FRUIT)) {
             setXp(getXp() + 50);
             setSize(getSize() + 5);
             return liked;
-        } else if (getLikes().contains(Food.BERRY)) {
+        } else if (Food == se.iths.grupp2.animals.Food.BERRY) {
             setXp(getXp() + 20);
             setSize(getSize() + 2);
             return tolerated;
         }
-        if (getXp() > 50) {
+        if (getSize() > 5) {
             return "I am the strongest of all apes. Admire my mighty growth.";
 
         } else {
