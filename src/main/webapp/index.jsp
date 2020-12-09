@@ -60,7 +60,7 @@
 
         setTimeout(() => {
             $('#' + uuid).alert('close');
-        }, 1000);
+        }, 5000);
     }
 
     const createAnimalElem = (animal) => {
