@@ -51,6 +51,12 @@ public class AddPost extends HttpServlet {
                         0, 0, "Black");
                 break;
             // Kabbe's Sea Creatures
+            case "Shark":
+            animal = new Shark("Shark", Arrays.asList(Food.MEAT), 0, true, "sharp", "Delicious fins","Yes");
+            break;
+            case "Goldfish":
+                animal = new Goldfish("Goldfish", Arrays.asList(Food.VEGETABLE), 0, false, "Small teeth", "Small fins", true);
+                break;
             default:
                 throw new IllegalStateException("Unexpected value: " + animalName);
         }
