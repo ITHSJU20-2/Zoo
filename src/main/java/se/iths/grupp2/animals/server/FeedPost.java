@@ -12,13 +12,14 @@ import java.io.PrintWriter;
 
 public class FeedPost extends HttpServlet {
 
+    /*
+     * From the post body we get the name of the animal in a string and convert it into the respective animal. As
+     * well as the food source.
+     * Then the feed method is run using the animal and food source. Then returns the message of "success" to the
+     * webpage.
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        /*
-        Body:
-            animal (name)
-            food
-         */
         Food food = Food.valueOf(req.getParameter("food").toUpperCase());
         Animal animal = Main.getController().getAnimalByName(req.getParameter("animal"));
         boolean liked = Main.getController().feed(animal, food);
