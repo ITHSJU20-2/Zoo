@@ -3,13 +3,9 @@ package se.iths.grupp2.animals;
 import java.util.List;
 
 public class Gorilla extends Ape {
-    private static String liked;
-    private static String tolerated;
 
     public Gorilla(String name, List likes, int xp, int size, String colour) {
         super(name, likes, xp, size, colour);
-        liked = "That's what I'm talkin' about...";
-        tolerated = "That'll do for now. But if more is not forthcoming, I shall have at you, sir.";
     }
 
 

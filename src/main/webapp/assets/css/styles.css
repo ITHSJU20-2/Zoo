@@ -12,6 +12,11 @@
     align-items: center;
 }
 
+.animal-container img {
+    width: 200px;
+    height: auto;
+}
+
 .animal-name {
     text-decoration: underline;
     font-size: 24px;
@@ -51,4 +56,19 @@
     cursor: pointer;
     text-align: center;
     padding: 5px;
+}
+
+.alert-wrapper {
+    width: 500px;
+    height: 100vh;
+    overflow-y: auto;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    top: 10px;
+}
+
+.alert {
+    line-height: 50px;
+    border-radius: 8px;
 }

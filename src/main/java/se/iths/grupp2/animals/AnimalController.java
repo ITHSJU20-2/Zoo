@@ -65,7 +65,7 @@ public class AnimalController {
             return ((Chimpanzee) animal).pet();
         } else
             animal.setXp(animal.getXp() + 1);
-        return false;
+        return true;
     }
 
     public Animal getAnimalByName(String name) {

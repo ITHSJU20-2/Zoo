@@ -31,10 +31,10 @@ public class AddPost extends HttpServlet {
                 animal = new Eagle("Eagle", Arrays.asList(Food.BERRY, Food.FRUIT), 0, true, "Skreaaaaagh");
                 break;
             case "Ostrich":
-                animal = new Ostrich("Ostrich", Arrays.asList(Food.FRUIT), 0, false, "???");
+                animal = new Ostrich("Ostrich", Arrays.asList(Food.FRUIT), 0, false, "EuhehuHeuEhEuEh");
                 break;
             case "Pigeon":
-                animal = new Pigeon("Pigeon", Arrays.asList(Food.VEGETABLE), 0, true, "kurrkurr");
+                animal = new Pigeon("Pigeon", Arrays.asList(Food.VEGETABLE), 0, true, "Kurrkurr");
                 break;
             // Marcus' Feline
             // Sean's Canines
