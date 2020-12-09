@@ -146,9 +146,24 @@
             let animal = e.target.getAttribute('data-animal');
             $.post('./pet', {animal: animal}, data => {
                 if (data === 'success') {
-                    createAlert('success', animal + ' has been pet!');
+                    if (animal === 'Gorilla') {
+                        createAlert('success', 'Gorilla: Thank you!');
+                    } else if (animal === 'Orangutan') {
+                        createAlert('success', 'Orangutan: Awwww, come \'ere you!');
+                    } else if (animal === 'Chimpanzee') {
+                        createAlert('success',
+                            'Chimpanzee: I like you, haven\'t felt this loved since I met Michael Jackson!');
+                    } else
+                        createAlert('success', animal + ' has been pet!');
+                } else if (data === 'error') {
+                    if (animal === 'Gorilla') {
+                        createAlert('warning',
+                            'Gorilla: Dude, really? Petting me? The mighty Gorilla? You got a death wish?!');
+                    } else {
+                        createAlert('danger', animal + ' does not like to be touched there!');
+                    }
                 } else {
-                    createAlert('danger', animal + ' does not like to be touched there!');
+                    createAlert('info', animal + ': ' + data);
                 }
             });
         });
