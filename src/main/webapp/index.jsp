@@ -60,7 +60,7 @@
 
         setTimeout(() => {
             $('#' + uuid).alert('close');
-        }, 5000);
+        }, 1000);
     }
 
     const createAnimalElem = (animal) => {
@@ -70,6 +70,9 @@
         title.classList.add('animal-title');
         let interactBtns = document.createElement('div');
         interactBtns.classList.add('animal-interact-btns');
+
+        let img = document.createElement('img');
+        img.src = './assets/images/' + animal + '.png';
 
         let name = document.createElement('p');
         name.classList.add('animal-name');
@@ -123,6 +126,7 @@
         interactBtns.appendChild(feedBtn);
         interactBtns.appendChild(petBtn);
         container.appendChild(title);
+        container.appendChild(img);
         container.appendChild(foodDropdown);
         container.appendChild(interactBtns);
         container.appendChild(viewBtn);
