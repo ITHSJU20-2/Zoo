@@ -74,6 +74,10 @@
         let interactBtns = document.createElement('div');
         interactBtns.classList.add('animal-interact-btns');
 
+        //This goes anywhere in the createAnimalElem function as long as it's above the first container.appendChild
+        let img = document.createElement('img');
+        img.src = './assets/images/' + animal + '.png';
+
         let name = document.createElement('p');
         name.classList.add('animal-name');
         name.innerText = animal;
@@ -126,6 +130,7 @@
         interactBtns.appendChild(feedBtn);
         interactBtns.appendChild(petBtn);
         container.appendChild(title);
+        container.appendChild(img);
         container.appendChild(foodDropdown);
         container.appendChild(interactBtns);
         container.appendChild(viewBtn);
