@@ -37,7 +37,17 @@ public class AddPost extends HttpServlet {
                 animal = new Pigeon("Pigeon", Arrays.asList(Food.VEGETABLE), 0, true, "kurrkurr");
                 break;
             // Marcus' Feline
-            // Sean's Forest Creatures
+            // Sean's Canines
+            case "Wolf":
+                animal = new Wolf("Wolf", Arrays.asList(Food.MEAT), 0, false, true);
+                break;
+            case "Coyote":
+                animal = new Coyote("Coyote", Arrays.asList(Food.MEAT), 0, true, false);
+                break;
+            case "Dog":
+                animal = new Dog("Dog", Arrays.asList(Food.MEAT), 0, true, true);
+                break;
+            //Thomas' Apes
             case "Gorilla":
                 animal = new Gorilla("Gorilla", Arrays.asList(Food.MEAT, Food.FRUIT, Food.BERRY), 0, 0,
                         "Silver and black");
