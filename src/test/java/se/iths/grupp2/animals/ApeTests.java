@@ -30,7 +30,7 @@ class ApeTests {
         System.out.println("All apes tested");
     }
 
-    //TESTS OF METHODS IN CONTROLLER CLASS
+    //TESTS OF METHODS FROM CONTROLLER CLASS
     @Test
     void petGorilla() {
         Main.getController().pet(gorilla);
@@ -43,14 +43,14 @@ class ApeTests {
         Main.getController().feed(gorilla, Food.BERRY);
         Main.getController().feed(gorilla, Food.VEGETABLE);
         Main.getController().feed(gorilla, Food.FRUIT);
-        Assertions.assertEquals(12, gorilla.getXp());
+        Assertions.assertEquals(120, gorilla.getXp());
     }
 
     @Test
     void petOrangutan() {
         Main.getController().pet(orangutan);
         Main.getController().pet(orangutan);
-        Assertions.assertEquals(2, orangutan.getXp());
+        Assertions.assertEquals(4, orangutan.getXp());
     }
 
     @Test
@@ -64,17 +64,17 @@ class ApeTests {
         Main.getController().pet(chimpanzee);
         Main.getController().pet(chimpanzee);
         Main.getController().pet(chimpanzee);
-        Assertions.assertEquals(3, chimpanzee.getXp());
+        Assertions.assertEquals(12, chimpanzee.getXp());
     }
 
     @Test
     void feedChimpanzee() {
         Main.getController().feed(chimpanzee, Food.BERRY);
         Main.getController().feed(chimpanzee, Food.BERRY);
-        Assertions.assertEquals(8, chimpanzee.getXp());
+        Assertions.assertEquals(80, chimpanzee.getXp());
     }
 
-    //TESTS OF METHODS IN INDIVIDUAL APE CLASSES- UNCLEAR (UNLIKELY) IF THESE WILL BE USED
+    //TESTS OF INDIVIDUAL METHODS WITHIN APE CLASSES
     @Test
     void petGorillaClass() {
         gorilla.pet();
