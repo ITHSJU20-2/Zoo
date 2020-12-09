@@ -136,7 +136,8 @@
             $.post('./feed', {animal: animal, food: food}, data => {
                 if (data === 'success') {
                     if (animal === 'Gorilla') {
-                        createAlert('success', 'Gorilla: I am the strongest of all apes. Admire my mighty growth.');
+                        createAlert('success',
+                            'Gorilla: I am the strongest of all apes. Admire my mighty growth.');
                     } else if (animal === 'Orangutan') {
                         createAlert('success', 'Orangutan: My arms are a real conversation starter.');
                     } else if (animal === 'Chimpanzee') {
