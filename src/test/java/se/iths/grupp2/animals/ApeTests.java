@@ -74,7 +74,7 @@ class ApeTests {
         Assertions.assertEquals(8, chimpanzee.getXp());
     }
 
-    //TESTS OF METHODS IN INDIVIDUAL APE CLASSES- UNCLEAR (PERHAPS UNLIKELY?) IF THESE WILL BE USED
+    //TESTS OF METHODS IN INDIVIDUAL APE CLASSES- UNCLEAR (PERHAPS EVEN UNLIKELY?) IF THESE WILL BE USED
     @Test
     void petGorillaClass() {
         gorilla.pet();
