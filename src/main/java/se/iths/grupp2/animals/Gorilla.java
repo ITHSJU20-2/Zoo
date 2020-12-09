@@ -13,30 +13,31 @@ public class Gorilla extends Ape {
     }
 
 
-    public String pet() {
-        if (getXp() > 10) {
-            return "Dude, really? Petting me? The mighty " + getName() + "? You got a death wish?!";
+    public boolean pet() {
+        if (getXp() >= 10) {
+            return false; //"Dude, really? Petting me? The mighty " + getName() + "? You got a death wish?!";
         } else
             setXp(getXp() + 1);
-        return "Thank you!";
+        return true; //"Thank you!";
     }
 
     //different food has different XP??
-    public String feed(Food Food) {
+    public boolean feed(Food Food) {
         if ((Food == se.iths.grupp2.animals.Food.MEAT) || (Food == se.iths.grupp2.animals.Food.FRUIT)) {
             setXp(getXp() + 50);
             setSize(getSize() + 5);
-            return liked;
+            return true;
         } else if (Food == se.iths.grupp2.animals.Food.BERRY) {
             setXp(getXp() + 20);
             setSize(getSize() + 2);
-            return tolerated;
-        }
-        if (getSize() > 5) {
+            return true;
+        } else return false;
+
+        /*if (getSize() > 5) {
             return "I am the strongest of all apes. Admire my mighty growth.";
 
         } else {
             return "I'm still puny. And I blame you.";
-        }
+        }*/
     }
 }

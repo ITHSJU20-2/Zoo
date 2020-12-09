@@ -29,8 +29,20 @@ public class AnimalController {
      * @param food   The food to feed the animal.
      * @return A boolean of whether the animal was fed due to it's food preferences.
      */
+    //TOM: have added some code to use methods inside of ape classes which changes level of XP dependent upon class
+    // and food type
+    //NOTE- could this be changed to a switch??
     public boolean feed(Animal animal, Food food) {
-        if (animal.getLikes().contains(food)) {
+        if (animal instanceof Gorilla && (animal.getLikes().contains(food))) {
+            ((Gorilla) animal).feed(food);
+            return true;
+        } else if (animal instanceof Orangutan && (animal.getLikes().contains(food))) {
+            ((Orangutan) animal).feed(food);
+            return true;
+        } else if (animal instanceof Chimpanzee && animal.getLikes().contains(food)) {
+            ((Chimpanzee) animal).feed(food);
+            return true;
+        } else if (animal.getLikes().contains(food)) {
             animal.setXp(animal.getXp() + 4);
             return true;
         }
@@ -42,8 +54,18 @@ public class AnimalController {
      *
      * @param animal The animal to pet.
      */
-    public void pet(Animal animal) {
-        animal.setXp(animal.getXp() + 1);
+    //TOM: have added some code to use methods inside of ape classes which changes level of XP dependent upon class
+    //Could this be changed to a switch??
+    public boolean pet(Animal animal) {
+        if (animal instanceof Gorilla) {
+            return ((Gorilla) animal).pet();
+        } else if (animal instanceof Orangutan) {
+            return ((Orangutan) animal).pet();
+        } else if (animal instanceof Chimpanzee) {
+            return ((Chimpanzee) animal).pet();
+        } else
+            animal.setXp(animal.getXp() + 1);
+        return false;
     }
 
     public Animal getAnimalByName(String name) {
