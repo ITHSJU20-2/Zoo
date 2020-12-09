@@ -51,10 +51,17 @@
     animalList.push("<%= animal.getName() %>");
     <% } %>
 
+    const uuid = () => {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+            let r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+
     const createAlert = (type, text) => {
-        const uuid = '<%=UUID.randomUUID().toString()%>';
+        const alertId = uuid();
         const alertElem = document.createElement('div');
-        alertElem.id = uuid;
+        alertElem.id = alertId;
         alertElem.classList.add('alert', 'alert-' + type, 'alert-dismissible', 'fade', 'show');
         alertElem.innerHTML =
             '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' + text;
@@ -62,7 +69,7 @@
         document.querySelector('.alert-wrapper').appendChild(alertElem);
 
         setTimeout(() => {
-            $('#' + uuid).alert('close');
+            $('#' + alertId).alert('close');
         }, 5000);
     }
 
