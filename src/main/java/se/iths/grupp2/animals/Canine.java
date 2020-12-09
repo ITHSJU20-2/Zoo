@@ -1,14 +1,17 @@
 package se.iths.grupp2.animals;
 
+
+import java.util.List;
+
 public class Canine extends Animal{
 
         private boolean barking;
         private boolean howling;
 
-        public Canine(String name, List<Food> dislikes, List<Food> likes, int xp, boolean barking, boolean howling) {
-            super(name, dislikes, likes, xp);
-            this.barking() = barking;
-            this.howling() = howling;
+        public Canine(String name, List<Food> likes, int xp, boolean barking, boolean howling) {
+            super(name, likes, xp);
+            this.barking = barking;
+            this.howling = howling;
         }
 
         public boolean isBarking() {
@@ -18,5 +21,4 @@ public class Canine extends Animal{
         public boolean isHowling() {
             return howling;
         }
-    }
 }
