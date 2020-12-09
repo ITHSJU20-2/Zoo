@@ -3,13 +3,9 @@ package se.iths.grupp2.animals;
 import java.util.List;
 
 public class Chimpanzee extends Ape {
-    private static String liked;
-    private static String tolerated;
 
     public Chimpanzee(String name, List likes, int xp, int size, String colour) {
         super(name, likes, xp, size, colour);
-        liked = "Yes. Good! Feed my growing brain.";
-        tolerated = "Is this the best you got?.";
     }
 
 
