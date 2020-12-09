@@ -18,8 +18,11 @@ public class PetPost extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Animal animal = Main.getController().getAnimalByName(req.getParameter("animal"));
-        Main.getController().pet(animal);
+        boolean success = Main.getController().pet(animal);
         PrintWriter writer = resp.getWriter();
-        writer.append("success");
+        if (success) {
+            writer.append("success");
+        } else
+            writer.append("error");
     }
 }
