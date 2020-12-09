@@ -9,8 +9,8 @@
 <html>
 <head>
     <title>ZooGame v0</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -24,23 +24,23 @@
     <option value="Orangutan" data-animal="Orangutan">Orangutan</option>
     <option value="Chimpanzee" data-animal="Chimpanzee">Chimpanzee</option>
 </select>
-<button class="add-animal">Add Animal</button>
-<button class="save">Save</button>
-<a href="./settings.jsp" class="settings">Settings</a>
+<button class="add-animal btn btn-primary">Add Animal</button>
+<a href="./settings.jsp" class="settings btn btn-primary" role="button">Settings</a>
+<button class="save btn btn-success">Save</button>
 
-<div class="animal-wrapper d-flex flex-row flex-wrap"></div>
+<div class="animal-wrapper d-flex flex-row flex-wrap justify-content-center align-items-center"></div>
 
-<div class="alert-wrapper d-flex flex-column-reverse"></div>
+<%--<div--%>
+<%--        style="background-image:url('./assets/images/Eagle.png');height:200px;width:200px;background-position:center;background-repeat:no-repeat;background-size: contain;border:1px solid #111;border-radius:8px;"></div>--%>
+
+<div class="alert-wrapper d-flex flex-column-reverse pe-none"></div>
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
 <script>
     const wrapper = document.querySelector('.animal-wrapper');
@@ -64,7 +64,8 @@
         alertElem.id = alertId;
         alertElem.classList.add('alert', 'alert-' + type, 'alert-dismissible', 'fade', 'show');
         alertElem.innerHTML =
-            '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' + text;
+            text +
+            '<button type="button" class="btn-close pe-auto" data-bs-dismiss="alert" aria-label="Close"></button>';
 
         document.querySelector('.alert-wrapper').appendChild(alertElem);
 
@@ -74,22 +75,22 @@
     }
 
     const createAnimalElem = (animal) => {
-        let container = document.createElement('div');
-        container.classList.add('animal-container');
-        let title = document.createElement('div');
-        title.classList.add('animal-title');
-        let interactBtns = document.createElement('div');
-        interactBtns.classList.add('animal-interact-btns');
+        let card = document.createElement('div');
+        card.classList.add('card', 'fadeIn', 'animated');
+        card.setAttribute('data-animal', animal);
 
-        let img = document.createElement('img');
-        img.src = './assets/images/' + animal + '.png';
+        let cardImg = document.createElement('img');
+        cardImg.classList.add('card-img-top');
+        cardImg.src = './assets/images/' + animal + '.png';
 
-        let name = document.createElement('p');
-        name.classList.add('animal-name');
-        name.innerText = animal;
+        let cardBody = document.createElement('div');
+        cardBody.classList.add('card-body');
 
+        let cardTitle = document.createElement('h5');
+        cardTitle.classList.add('card-title');
+        cardTitle.innerText = animal;
         let foodDropdown = document.createElement('select');
-        foodDropdown.classList.add('food-dropdown');
+        foodDropdown.classList.add('card-food-dropdown');
         foodDropdown.setAttribute('data-animal', animal);
 
         let vegetableOption = document.createElement('option');
@@ -113,37 +114,39 @@
         foodDropdown.appendChild(berryOption);
         foodDropdown.appendChild(meatOption);
 
-        let feedBtn = document.createElement('button');
-        feedBtn.classList.add('btn');
-        feedBtn.classList.add('feed-btn');
-        feedBtn.innerText = 'Feed';
-        feedBtn.setAttribute('data-animal', animal);
+        let cardAnimBtns = document.createElement('div');
+        cardAnimBtns.classList.add('d-flex', 'justify-content-between', 'btn-div');
 
-        let petBtn = document.createElement('button');
-        petBtn.classList.add('btn');
-        petBtn.classList.add('pet-btn');
-        petBtn.innerText = 'Pet';
-        petBtn.setAttribute('data-animal', animal);
+        let cardFeed = document.createElement('button');
+        cardFeed.classList.add('btn', 'btn-primary', 'btn-feed', 'w-50');
+        cardFeed.setAttribute('data-animal', animal);
+        cardFeed.innerText = 'Feed';
 
-        let viewBtn = document.createElement('a');
-        viewBtn.classList.add('link-btn');
-        viewBtn.classList.add('view-btn');
-        viewBtn.innerText = 'View';
-        viewBtn.href = 'animal/' + animal;
-        viewBtn.setAttribute('data-animal', animal);
+        let cardPet = document.createElement('button');
+        cardPet.classList.add('btn', 'btn-primary', 'btn-pet', 'w-50');
+        cardPet.setAttribute('data-animal', animal);
+        cardPet.innerText = 'Pet';
 
-        title.appendChild(name);
-        interactBtns.appendChild(feedBtn);
-        interactBtns.appendChild(petBtn);
-        container.appendChild(title);
-        container.appendChild(img);
-        container.appendChild(foodDropdown);
-        container.appendChild(interactBtns);
-        container.appendChild(viewBtn);
+        cardAnimBtns.appendChild(cardFeed);
+        cardAnimBtns.appendChild(cardPet);
 
-        feedBtn.addEventListener('click', (e) => {
+        let cardView = document.createElement('a');
+        cardView.classList.add('btn', 'btn-success', 'w-100');
+        cardView.setAttribute('role', 'button');
+        cardView.href = './animal/' + animal;
+        cardView.innerText = 'View';
+
+        cardBody.appendChild(cardTitle);
+        cardBody.appendChild(foodDropdown);
+        cardBody.appendChild(cardAnimBtns);
+        cardBody.appendChild(cardView);
+        card.appendChild(cardImg);
+        card.appendChild(cardBody);
+
+
+        cardFeed.addEventListener('click', (e) => {
             let animal = e.target.getAttribute('data-animal');
-            let food = $('.food-dropdown[data-animal="' + animal + '"]').val();
+            let food = $('.card-food-dropdown[data-animal="' + animal + '"]').val();
             $.post('./feed', {animal: animal, food: food}, data => {
                 if (data === 'success') {
                     if (animal === 'Gorilla') {
@@ -154,8 +157,9 @@
                     } else if (animal === 'Chimpanzee') {
                         createAlert('success',
                             'Chimpanzee: If I grow too big I may become too much to handle...');
-                    } else
+                    } else {
                         createAlert('success', animal + ' has been fed with ' + food + '!');
+                    }
                 } else if (data === 'error') {
                     if (animal === 'Gorilla') {
                         createAlert('warning',
@@ -165,13 +169,14 @@
                     } else if (animal === 'Chimpanzee') {
                         createAlert('warning',
                             'Chimpanzee: I\'m not normally fussy, but your cooking sucks, dude. Everybody is thinking it, I just said it.');
-                    } else
-                        createAlert('danger', animal + ' does not like ' + food + '!');
+                    } else {
+                        createAlert('danger', animal + ' does not want ' + food + '!');
+                    }
                 }
             });
         });
 
-        petBtn.addEventListener('click', (e) => {
+        cardPet.addEventListener('click', (e) => {
             let animal = e.target.getAttribute('data-animal');
             $.post('./pet', {animal: animal}, data => {
                 if (data === 'success') {
@@ -191,13 +196,11 @@
                     } else {
                         createAlert('danger', animal + ' does not like to be touched there!');
                     }
-                } else {
-                    createAlert('info', animal + ': ' + data);
                 }
             });
         });
 
-        wrapper.appendChild(container);
+        wrapper.appendChild(card);
     }
 
     animalList.forEach(animal => {

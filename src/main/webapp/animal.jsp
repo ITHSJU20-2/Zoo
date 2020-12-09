@@ -26,7 +26,7 @@
 <%if (animal instanceof Bird) {%>
 <p><%="Sound: " + ((Bird) animal).getSound()%>
 </p>
-<p><%="Can I fly?: " + ((Bird) animal).isCanFly()%>
+<p><%="Can I fly?: " + (((Bird) animal).isCanFly() ? "Yes" : "No")%>
 </p>
 <%}%>
 <br>
