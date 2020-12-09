@@ -10,7 +10,7 @@ public class Animal {
 
     private int xp;
 
-    public Animal(String name, List<Food> dislikes, List<Food> likes, int xp) {
+    public Animal(String name, List<Food> likes, int xp) {
         this.name = name;
         this.likes = likes;
         this.xp = xp;

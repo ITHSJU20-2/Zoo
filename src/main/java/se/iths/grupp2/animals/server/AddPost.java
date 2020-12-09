@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class AddPost extends HttpServlet {
@@ -37,7 +38,13 @@ public class AddPost extends HttpServlet {
                 animal = new Pigeon("Pigeon", Arrays.asList(Food.VEGETABLE), 0, true, "kurrkurr");
                 break;
             // Marcus' Feline
-            // Sean's Forest Creatures
+            case "Cat":
+                animal = new Cat("Cat",Arrays.asList(Food.MEAT),0,false,"Mjaauu");
+                break;
+            case "Lion":
+                animal = new Lion("Lion",Arrays.asList(Food.MEAT),0,true,"RoOAAAR");
+                break;
+                // Sean's Forest Creatures
             case "Gorilla":
                 animal = new Gorilla("Gorilla", Arrays.asList(Food.MEAT, Food.FRUIT, Food.BERRY), 0, 0,
                         "Silver and black");

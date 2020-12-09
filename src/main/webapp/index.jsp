@@ -23,6 +23,9 @@
     <option value="Gorilla" data-animal="Gorilla">Gorilla</option>
     <option value="Orangutan" data-animal="Orangutan">Orangutan</option>
     <option value="Chimpanzee" data-animal="Chimpanzee">Chimpanzee</option>
+    <option value="Cat" data-animal="Cat">Cat</option>
+    <option value="Lion" data-animal="Lion">Lion</option>
+
 </select>
 <button class="add-animal">Add Animal</button>
 <button class="save">Save</button>

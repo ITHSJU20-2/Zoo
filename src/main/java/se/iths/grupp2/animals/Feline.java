@@ -6,8 +6,8 @@ public abstract class Feline extends Animal {
     private String sound;
     private boolean wild;
 
-    public Feline(String name, List<Food> dislikes, List<Food> likes, int xp, boolean wild, String sound) {
-        super(name, dislikes, likes, xp);
+    public Feline(String name, List<Food> likes, int xp, boolean wild, String sound) {
+        super(name, likes, xp);
         this.sound = sound;
         this.wild = wild;
     }
