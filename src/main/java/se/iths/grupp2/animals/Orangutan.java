@@ -16,10 +16,10 @@ public class Orangutan extends Ape {
     public boolean pet() {
         if (getXp() >= 10) {
             setXp(getXp() + 1);
-            return true; //"Clyde is my brother. You may have seen him with Clint Eastwood. So don't get too close.";
+            return true;
         } else
             setXp(getXp() + 2);
-        return true; //"Come 'ere you!";
+        return true;
     }
 
 
@@ -34,12 +34,5 @@ public class Orangutan extends Ape {
             setSize(getSize() + 1);
             return true;
         } else return false;
-
-        /*if (getSize() > 5) {
-            return "My arms are a real conversation starter.";
-
-        } else {
-            return "I have room for improvement.";
-        }*/
     }
 }

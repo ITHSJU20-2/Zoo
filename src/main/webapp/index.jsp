@@ -135,9 +135,26 @@
             let food = $('.food-dropdown[data-animal="' + animal + '"]').val();
             $.post('./feed', {animal: animal, food: food}, data => {
                 if (data === 'success') {
-                    createAlert('success', animal + ' has been fed with ' + food + '!');
+                    if (animal === 'Gorilla') {
+                        createAlert('success', 'Gorilla: I am the strongest of all apes. Admire my mighty growth.');
+                    } else if (animal === 'Orangutan') {
+                        createAlert('success', 'Orangutan: My arms are a real conversation starter.');
+                    } else if (animal === 'Chimpanzee') {
+                        createAlert('success',
+                            'Chimpanzee: If I grow too big I may become too much to handle...');
+                    } else
+                        createAlert('success', animal + ' has been fed with ' + food + '!');
                 } else if (data === 'error') {
-                    createAlert('danger', animal + ' does not like ' + food + '!');
+                    if (animal === 'Gorilla') {
+                        createAlert('warning',
+                            'Gorilla: I\'m still puny. And I blame you.');
+                    } else if (animal === 'Orangutan') {
+                        createAlert('warning', 'Orangutan: Come on man, you know I\'m vegan.');
+                    } else if (animal === 'Chimpanzee') {
+                        createAlert('warning',
+                            'Chimpanzee: I\'m not normally fussy, but your cooking sucks, dude. Everybody is thinking it, I just said it.');
+                    } else
+                        createAlert('danger', animal + ' does not like ' + food + '!');
                 }
             });
         });

@@ -16,10 +16,10 @@ public class Chimpanzee extends Ape {
     public boolean pet() {
         if (getXp() >= 10) {
             setXp(getXp() + 2);
-            return true; //"If I felt like it, I could destroy you. Go watch Planet of the Apes.";
+            return true;
         } else
             setXp(getXp() + 4);
-        return true; //"I like you, haven't felt this loved since I met Michael Jackson!";
+        return true;
     }
 
 
@@ -33,12 +33,5 @@ public class Chimpanzee extends Ape {
             setSize(getSize() + 1);
             return true;
         } else return false;
-
-        /*if (getSize() > 5) {
-            return "If I grow too big I may become too much to handle...";
-
-        } else {
-            return "I'm small but perfectly formed.";
-        }*/
     }
 }

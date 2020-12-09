@@ -15,10 +15,10 @@ public class Gorilla extends Ape {
 
     public boolean pet() {
         if (getXp() >= 10) {
-            return false; //"Dude, really? Petting me? The mighty " + getName() + "? You got a death wish?!";
+            return false;
         } else
             setXp(getXp() + 1);
-        return true; //"Thank you!";
+        return true;
     }
 
     //different food has different XP??
@@ -32,12 +32,5 @@ public class Gorilla extends Ape {
             setSize(getSize() + 2);
             return true;
         } else return false;
-
-        /*if (getSize() > 5) {
-            return "I am the strongest of all apes. Admire my mighty growth.";
-
-        } else {
-            return "I'm still puny. And I blame you.";
-        }*/
     }
 }
