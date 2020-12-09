@@ -20,6 +20,9 @@
     <option value="Eagle" data-animal="Eagle">Eagle</option>
     <option value="Ostrich" data-animal="Ostrich">Ostrich</option>
     <option value="Pigeon" data-animal="Pigeon">Pigeon</option>
+    <option value="Gorilla" data-animal="Gorilla">Gorilla</option>
+    <option value="Orangutan" data-animal="Orangutan">Orangutan</option>
+    <option value="Chimpanzee" data-animal="Chimpanzee">Chimpanzee</option>
 </select>
 <button class="add-animal">Add Animal</button>
 <button class="save">Save</button>
@@ -136,9 +139,27 @@
             let food = $('.food-dropdown[data-animal="' + animal + '"]').val();
             $.post('./feed', {animal: animal, food: food}, data => {
                 if (data === 'success') {
-                    createAlert('success', animal + ' has been fed with ' + food + '!');
+                    if (animal === 'Gorilla') {
+                        createAlert('success',
+                            'Gorilla: I am the strongest of all apes. Admire my mighty growth.');
+                    } else if (animal === 'Orangutan') {
+                        createAlert('success', 'Orangutan: My arms are a real conversation starter.');
+                    } else if (animal === 'Chimpanzee') {
+                        createAlert('success',
+                            'Chimpanzee: If I grow too big I may become too much to handle...');
+                    } else
+                        createAlert('success', animal + ' has been fed with ' + food + '!');
                 } else if (data === 'error') {
-                    createAlert('danger', animal + ' does not like ' + food + '!');
+                    if (animal === 'Gorilla') {
+                        createAlert('warning',
+                            'Gorilla: I\'m still puny. And I blame you.');
+                    } else if (animal === 'Orangutan') {
+                        createAlert('warning', 'Orangutan: Come on man, you know I\'m vegan.');
+                    } else if (animal === 'Chimpanzee') {
+                        createAlert('warning',
+                            'Chimpanzee: I\'m not normally fussy, but your cooking sucks, dude. Everybody is thinking it, I just said it.');
+                    } else
+                        createAlert('danger', animal + ' does not like ' + food + '!');
                 }
             });
         });
@@ -147,9 +168,24 @@
             let animal = e.target.getAttribute('data-animal');
             $.post('./pet', {animal: animal}, data => {
                 if (data === 'success') {
-                    createAlert('success', animal + ' has been pet!');
+                    if (animal === 'Gorilla') {
+                        createAlert('success', 'Gorilla: Thank you!');
+                    } else if (animal === 'Orangutan') {
+                        createAlert('success', 'Orangutan: Awwww, come \'ere you!');
+                    } else if (animal === 'Chimpanzee') {
+                        createAlert('success',
+                            'Chimpanzee: I like you, haven\'t felt this loved since I met Michael Jackson!');
+                    } else
+                        createAlert('success', animal + ' has been pet!');
+                } else if (data === 'error') {
+                    if (animal === 'Gorilla') {
+                        createAlert('warning',
+                            'Gorilla: Dude, really? Petting me? The mighty Gorilla? You got a death wish?!');
+                    } else {
+                        createAlert('danger', animal + ' does not like to be touched there!');
+                    }
                 } else {
-                    createAlert('danger', animal + ' does not like to be touched there!');
+                    createAlert('info', animal + ': ' + data);
                 }
             });
         });
