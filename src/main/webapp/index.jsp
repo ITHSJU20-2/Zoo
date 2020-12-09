@@ -74,7 +74,6 @@
         let interactBtns = document.createElement('div');
         interactBtns.classList.add('animal-interact-btns');
 
-        //This goes anywhere in the createAnimalElem function as long as it's above the first container.appendChild
         let img = document.createElement('img');
         img.src = './assets/images/' + animal + '.png';
 
