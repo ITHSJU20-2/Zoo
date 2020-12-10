@@ -28,6 +28,7 @@ public class Animal {
         return xp;
     }
 
+    //Error handling for xp limit
     public void setXp(int xp) {
         if (xp > 5000) {
             setXp(5000);
