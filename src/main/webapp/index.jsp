@@ -25,6 +25,8 @@
     <option value="Chimpanzee" data-animal="Chimpanzee">Chimpanzee</option>
     <option value="Cat" data-animal="Cat">Cat</option>
     <option value="Lion" data-animal="Lion">Lion</option>
+    <option value="Shark" data-animal="Shark">Shark</option>
+    <option value="Goldfish" data-animal="Goldfish">Goldfish</option>
 
 </select>
 <button class="add-animal btn btn-primary">Add Animal</button>
@@ -182,6 +184,8 @@
                     } else if (animal === 'Chimpanzee') {
                         createAlert('success',
                             'Chimpanzee: If I grow too big I may become too much to handle...');
+                    } else if (animal === 'Shark') {
+                        createAlert('success', 'Shark: Thank you for feeding me, soon I\'ll be big enough to eat you');
                     } else {
                         createAlert('success', animal + ' has been fed with ' + food + '!');
                     }
@@ -212,6 +216,8 @@
                     } else if (animal === 'Chimpanzee') {
                         createAlert('success',
                             'Chimpanzee: I like you, haven\'t felt this loved since I met Michael Jackson!');
+                    } else if (animal === 'Shark') {
+                        createAlert('success', 'Shark: Really, you tried petting a shark? You just lost an arm');
                     } else
                         createAlert('success', animal + ' has been pet!');
                 } else if (data === 'error') {

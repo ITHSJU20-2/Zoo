@@ -42,6 +42,9 @@ public class AnimalController {
         } else if (animal instanceof Chimpanzee && animal.getLikes().contains(food)) {
             ((Chimpanzee) animal).feed(food);
             return true;
+        } else if (animal instanceof Shark && animal.getLikes().contains(food)) {
+            ((Shark) animal).feed();
+            return true;
         } else if (animal.getLikes().contains(food)) {
             animal.setXp(animal.getXp() + 4);
             return true;

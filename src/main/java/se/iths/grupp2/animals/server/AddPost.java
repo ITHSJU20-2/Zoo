@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class AddPost extends HttpServlet {
@@ -57,7 +56,16 @@ public class AddPost extends HttpServlet {
                 animal = new Chimpanzee("Chimpanzee", Arrays.asList(Food.MEAT, Food.FRUIT, Food.BERRY),
                         0, 0, "Black");
                 break;
+
             // Kabbe's Sea Creatures
+            case "Shark":
+                animal = new Shark("Shark", Arrays.asList(Food.MEAT), 0, false, "sharp",
+                        "stealthy", "CHEW");
+                break;
+            case "Goldfish":
+                animal = new Goldfish("Goldfish", Arrays.asList(Food.VEGETABLE), 0, false,
+                        "minimal", "small", true);
+                break;
             default:
                 throw new IllegalStateException("Unexpected value: " + animalName);
         }
