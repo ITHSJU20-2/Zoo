@@ -3,22 +3,18 @@ package se.iths.grupp2.animals;
 import java.util.List;
 
 public class Gorilla extends Ape {
-    private static String liked;
-    private static String tolerated;
 
     public Gorilla(String name, List likes, int xp, int size, String colour) {
         super(name, likes, xp, size, colour);
-        liked = "That's what I'm talkin' about...";
-        tolerated = "That'll do for now. But if more is not forthcoming, I shall have at you, sir.";
     }
 
 
     public boolean pet() {
         if (getXp() >= 10) {
-            return false; //"Dude, really? Petting me? The mighty " + getName() + "? You got a death wish?!";
+            return false;
         } else
             setXp(getXp() + 1);
-        return true; //"Thank you!";
+        return true;
     }
 
     //different food has different XP??
@@ -32,12 +28,5 @@ public class Gorilla extends Ape {
             setSize(getSize() + 2);
             return true;
         } else return false;
-
-        /*if (getSize() > 5) {
-            return "I am the strongest of all apes. Admire my mighty growth.";
-
-        } else {
-            return "I'm still puny. And I blame you.";
-        }*/
     }
 }

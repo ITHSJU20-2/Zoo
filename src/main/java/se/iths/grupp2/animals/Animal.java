@@ -29,6 +29,9 @@ public class Animal {
     }
 
     public void setXp(int xp) {
-        this.xp = xp;
+        if (getXp() > 5000) {
+            setXp(5000);
+        } else
+            this.xp = xp;
     }
 }

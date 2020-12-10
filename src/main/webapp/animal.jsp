@@ -1,6 +1,4 @@
-<%@ page import="se.iths.grupp2.animals.Main" %>
-<%@ page import="se.iths.grupp2.animals.Animal" %>
-<%@ page import="se.iths.grupp2.animals.Food" %><%--
+<%@ page import="se.iths.grupp2.animals.*" %><%--
   User: tobiaswadseth
   Date: 2020-11-30
 --%>
@@ -13,12 +11,46 @@
 <%
     Animal animal = Main.getController().getAnimalByName(request.getPathInfo().split("/")[1]);
 %>
-<h1><%=animal.getName()%></h1>
-<p>Experience: <%=animal.getXp()%> / 10,000</p>
+<h1><%=animal.getName()%>
+</h1>
+<p>Experience: <%=animal.getXp()%> / 5000</p>
+<%if (animal.getXp() <= 999) {%>
+<p><%="Level 1: Prey"%>
+</p>
+<%}%>
+<%if (animal.getXp() >= 1000 && animal.getXp() <= 1999) {%>
+<p><%="Level 2: Runt"%>
+</p>
+<%}%>
+<%if (animal.getXp() >= 2000 && animal.getXp() <= 2999) {%>
+<p><%="Level 3: Noble beast"%>
+</p>
+<%}%>
+<%if (animal.getXp() >= 3000 && animal.getXp() <= 3999) {%>
+<p><%="Level 4: Alpha specimen"%>
+</p>
+<%}%>
+<%if (animal.getXp() >= 4000 && animal.getXp() <= 5000) {%>
+<p><%="Level 5: Kingly creature"%>
+</p>
+<%}%>
 <p>I like: <%for (Food food : animal.getLikes()) {%>
-        <%=food.toString().toLowerCase()%>
+    <%=food.toString().toLowerCase()%>
     <%}%></p>
+<%if (animal instanceof Ape) {%>
+<p><%="Colour: " + ((Ape) animal).getColour()%>
+</p>
+<p><%="Size: " + ((Ape) animal).getSize()%>
+</p>
+<%}%>
+<%if (animal instanceof Bird) {%>
+<p><%="Sound: " + ((Bird) animal).getSound()%>
+</p>
+<p><%="Can I fly?: " + ((Bird) animal).isCanFly()%>
+</p>
+<%}%>
 <br>
+
 
 <a href="../">Back</a>
 
