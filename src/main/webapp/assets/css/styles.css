@@ -34,6 +34,13 @@
     text-align: center;
 }
 
+.btn-remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+}
+
 .card-img-top {
     object-fit: contain;
     width: 200px;

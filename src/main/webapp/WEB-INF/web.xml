@@ -51,6 +51,16 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>Delete</servlet-name>
+        <servlet-class>se.iths.grupp2.animals.server.DeletePost</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Delete</servlet-name>
+        <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>Save</servlet-name>
         <servlet-class>se.iths.grupp2.animals.server.SavePost</servlet-class>
     </servlet>
