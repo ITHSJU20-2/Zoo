@@ -9,3 +9,5 @@ A web based zoo keeping "game" written in Java
     * An IDE (Preferably IntelliJ)
     * Time
 1. Clone the project
+2. Ensure ZooGame:war is set to deploy in Deployment section of configurations in Payara
+3. Run Payara server and app should run in local URL
