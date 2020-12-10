@@ -1,7 +1,6 @@
 package se.iths.grupp2.animals.server;
 
 import se.iths.grupp2.animals.*;
-import sun.font.TrueTypeFont;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
