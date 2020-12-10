@@ -4,14 +4,14 @@
 --%>
 <%@ page import="se.iths.grupp2.animals.Animal" %>
 <%@ page import="se.iths.grupp2.animals.Main" %>
-<%@ page import="java.util.UUID" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>ZooGame v0</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://kit.fontawesome.com/215fcec735.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <h1>ZooGame v0!</h1>
@@ -23,24 +23,46 @@
     <option value="Gorilla" data-animal="Gorilla">Gorilla</option>
     <option value="Orangutan" data-animal="Orangutan">Orangutan</option>
     <option value="Chimpanzee" data-animal="Chimpanzee">Chimpanzee</option>
+    <option value="Cat" data-animal="Cat">Cat</option>
+    <option value="Lion" data-animal="Lion">Lion</option>
+    <option value="Shark" data-animal="Shark">Shark</option>
+    <option value="Goldfish" data-animal="Goldfish">Goldfish</option>
+
 </select>
-<button class="add-animal">Add Animal</button>
-<button class="save">Save</button>
-<a href="./settings.jsp" class="settings">Settings</a>
+<button class="add-animal btn btn-primary">Add Animal</button>
+<a href="./settings.jsp" class="settings btn btn-primary" role="button">Settings</a>
+<button class="save btn btn-success">Save</button>
 
-<div class="animal-wrapper d-flex flex-row flex-wrap"></div>
+<div class="animal-wrapper d-flex flex-row flex-wrap justify-content-center align-items-center"></div>
 
-<div class="alert-wrapper d-flex flex-column-reverse"></div>
+<div class="alert-wrapper d-flex flex-column-reverse pe-none"></div>
 
+<div class="modal fade" id="confirmRemove" tabindex="-1" aria-labelledby="confirmRemoveLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmRemoveLabel">Confirm</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to remove the <span></span>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary close-btn-confirmation" data-bs-dismiss="modal">Cancel
+                </button>
+                <button type="button" class="btn btn-danger remove-btn-confirmation" data-animal>Remove</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button class="btn btn-dark dark-mode"><i class="fas fa-moon"></i></button>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
         crossorigin="anonymous"></script>
 <script>
     const wrapper = document.querySelector('.animal-wrapper');
@@ -64,7 +86,8 @@
         alertElem.id = alertId;
         alertElem.classList.add('alert', 'alert-' + type, 'alert-dismissible', 'fade', 'show');
         alertElem.innerHTML =
-            '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' + text;
+            text +
+            '<button type="button" class="btn-close pe-auto" data-bs-dismiss="alert" aria-label="Close"></button>';
 
         document.querySelector('.alert-wrapper').appendChild(alertElem);
 
@@ -74,22 +97,27 @@
     }
 
     const createAnimalElem = (animal) => {
-        let container = document.createElement('div');
-        container.classList.add('animal-container');
-        let title = document.createElement('div');
-        title.classList.add('animal-title');
-        let interactBtns = document.createElement('div');
-        interactBtns.classList.add('animal-interact-btns');
+        let card = document.createElement('div');
+        card.classList.add('card', 'fadeIn', 'animated');
+        card.setAttribute('data-animal', animal);
 
-        let img = document.createElement('img');
-        img.src = './assets/images/' + animal + '.png';
+        let removeBtn = document.createElement('button');
+        removeBtn.classList.add('btn', 'btn-close', 'btn-remove');
+        removeBtn.setAttribute('data-bs-toggle', 'modal');
+        removeBtn.setAttribute('data-bs-target', '#confirmRemove')
 
-        let name = document.createElement('p');
-        name.classList.add('animal-name');
-        name.innerText = animal;
+        let cardImg = document.createElement('img');
+        cardImg.classList.add('card-img-top');
+        cardImg.src = './assets/images/' + animal + '.png';
 
+        let cardBody = document.createElement('div');
+        cardBody.classList.add('card-body');
+
+        let cardTitle = document.createElement('h5');
+        cardTitle.classList.add('card-title');
+        cardTitle.innerText = animal;
         let foodDropdown = document.createElement('select');
-        foodDropdown.classList.add('food-dropdown');
+        foodDropdown.classList.add('card-food-dropdown');
         foodDropdown.setAttribute('data-animal', animal);
 
         let vegetableOption = document.createElement('option');
@@ -113,37 +141,39 @@
         foodDropdown.appendChild(berryOption);
         foodDropdown.appendChild(meatOption);
 
-        let feedBtn = document.createElement('button');
-        feedBtn.classList.add('btn');
-        feedBtn.classList.add('feed-btn');
-        feedBtn.innerText = 'Feed';
-        feedBtn.setAttribute('data-animal', animal);
+        let cardAnimBtns = document.createElement('div');
+        cardAnimBtns.classList.add('d-flex', 'justify-content-between', 'btn-div');
 
-        let petBtn = document.createElement('button');
-        petBtn.classList.add('btn');
-        petBtn.classList.add('pet-btn');
-        petBtn.innerText = 'Pet';
-        petBtn.setAttribute('data-animal', animal);
+        let cardFeed = document.createElement('button');
+        cardFeed.classList.add('btn', 'btn-primary', 'btn-feed', 'w-50');
+        cardFeed.setAttribute('data-animal', animal);
+        cardFeed.innerText = 'Feed';
 
-        let viewBtn = document.createElement('a');
-        viewBtn.classList.add('link-btn');
-        viewBtn.classList.add('view-btn');
-        viewBtn.innerText = 'View';
-        viewBtn.href = 'animal/' + animal;
-        viewBtn.setAttribute('data-animal', animal);
+        let cardPet = document.createElement('button');
+        cardPet.classList.add('btn', 'btn-primary', 'btn-pet', 'w-50');
+        cardPet.setAttribute('data-animal', animal);
+        cardPet.innerText = 'Pet';
 
-        title.appendChild(name);
-        interactBtns.appendChild(feedBtn);
-        interactBtns.appendChild(petBtn);
-        container.appendChild(title);
-        container.appendChild(img);
-        container.appendChild(foodDropdown);
-        container.appendChild(interactBtns);
-        container.appendChild(viewBtn);
+        cardAnimBtns.appendChild(cardFeed);
+        cardAnimBtns.appendChild(cardPet);
 
-        feedBtn.addEventListener('click', (e) => {
+        let cardView = document.createElement('a');
+        cardView.classList.add('btn', 'btn-success', 'w-100');
+        cardView.setAttribute('role', 'button');
+        cardView.href = './animal/' + animal;
+        cardView.innerText = 'View';
+
+        cardBody.appendChild(cardTitle);
+        cardBody.appendChild(foodDropdown);
+        cardBody.appendChild(cardAnimBtns);
+        cardBody.appendChild(cardView);
+        card.appendChild(removeBtn);
+        card.appendChild(cardImg);
+        card.appendChild(cardBody);
+
+        cardFeed.addEventListener('click', (e) => {
             let animal = e.target.getAttribute('data-animal');
-            let food = $('.food-dropdown[data-animal="' + animal + '"]').val();
+            let food = $('.card-food-dropdown[data-animal="' + animal + '"]').val();
             $.post('./feed', {animal: animal, food: food}, data => {
                 if (data === 'success') {
                     if (animal === 'Gorilla') {
@@ -154,8 +184,11 @@
                     } else if (animal === 'Chimpanzee') {
                         createAlert('success',
                             'Chimpanzee: If I grow too big I may become too much to handle...');
-                    } else
+                    } else if (animal === 'Shark') {
+                        createAlert('success', 'Shark: Thank you for feeding me, soon I\'ll be big enough to eat you');
+                    } else {
                         createAlert('success', animal + ' has been fed with ' + food + '!');
+                    }
                 } else if (data === 'error') {
                     if (animal === 'Gorilla') {
                         createAlert('warning',
@@ -165,13 +198,14 @@
                     } else if (animal === 'Chimpanzee') {
                         createAlert('warning',
                             'Chimpanzee: I\'m not normally fussy, but your cooking sucks, dude. Everybody is thinking it, I just said it.');
-                    } else
-                        createAlert('danger', animal + ' does not like ' + food + '!');
+                    } else {
+                        createAlert('danger', animal + ' does not want ' + food + '!');
+                    }
                 }
             });
         });
 
-        petBtn.addEventListener('click', (e) => {
+        cardPet.addEventListener('click', (e) => {
             let animal = e.target.getAttribute('data-animal');
             $.post('./pet', {animal: animal}, data => {
                 if (data === 'success') {
@@ -182,6 +216,8 @@
                     } else if (animal === 'Chimpanzee') {
                         createAlert('success',
                             'Chimpanzee: I like you, haven\'t felt this loved since I met Michael Jackson!');
+                    } else if (animal === 'Shark') {
+                        createAlert('success', 'Shark: Really, you tried petting a shark? You just lost an arm');
                     } else
                         createAlert('success', animal + ' has been pet!');
                 } else if (data === 'error') {
@@ -191,13 +227,18 @@
                     } else {
                         createAlert('danger', animal + ' does not like to be touched there!');
                     }
-                } else {
-                    createAlert('info', animal + ': ' + data);
                 }
             });
         });
 
-        wrapper.appendChild(container);
+        removeBtn.addEventListener('click', (e) => {
+            let parentCard = e.target.parentNode;
+            let animal = parentCard.getAttribute('data-animal');
+            $('.remove-btn-confirmation').attr('data-animal', animal);
+            $('.modal-body span').text(animal);
+        });
+
+        wrapper.appendChild(card);
     }
 
     animalList.forEach(animal => {
@@ -205,7 +246,7 @@
     });
 
 
-    $('.save').click(e => {
+    $('.save').click(() => {
         $.post('./save', {}, () => {
             createAlert('success', 'The game has been saved!')
         })
@@ -221,6 +262,26 @@
             }
         });
     });
+
+    $('.remove-btn-confirmation').click(e => {
+        let animal = e.target.getAttribute('data-animal');
+        $.post('./delete', {animal: animal}, data => {
+            if (data === 'success') {
+                e.target.setAttribute('data-animal', '');
+                document.querySelector('.close-btn-confirmation').click();
+                $('.card[data-animal="' + animal + '"]').remove();
+                createAlert('success', animal + ' has been deleted!');
+            }
+        });
+    });
+
+    $('.dark-mode').click(() => {
+        $('body').toggleClass('dark');
+        $('.dark-mode').toggleClass('btn-dark');
+        $('.dark-mode').toggleClass('btn-light');
+        $('.dark-mode i').toggleClass('fa-moon');
+        $('.dark-mode i').toggleClass('fa-sun');
+    })
 </script>
 </body>
 </html>

@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 
 public class AddPost extends HttpServlet {
+
     /*
      * From the post body we get the name of the animal in a string and check if there exists an animal with that
      * name in the animal list in the AnimalController. In a switch statement we go through the name of the animal
@@ -42,7 +43,7 @@ public class AddPost extends HttpServlet {
             case "Lion":
                 animal = new Lion("Lion",Arrays.asList(Food.MEAT),0,true,"RoOAAAR");
                 break;
-            // Sean's Forest Creatures
+                // Sean's Forest Creatures
             case "Gorilla":
                 animal = new Gorilla("Gorilla", Arrays.asList(Food.MEAT, Food.FRUIT, Food.BERRY), 0, 0,
                         "Silver and black");
@@ -55,6 +56,7 @@ public class AddPost extends HttpServlet {
                 animal = new Chimpanzee("Chimpanzee", Arrays.asList(Food.MEAT, Food.FRUIT, Food.BERRY),
                         0, 0, "Black");
                 break;
+
             // Kabbe's Sea Creatures
             case "Shark":
                 animal = new Shark("Shark", Arrays.asList(Food.MEAT), 0, false, "sharp",
