@@ -33,11 +33,26 @@
 
 <div class="animal-wrapper d-flex flex-row flex-wrap justify-content-center align-items-center"></div>
 
-<%--<div--%>
-<%--        style="background-image:url('./assets/images/Eagle.png');height:200px;width:200px;background-position:center;background-repeat:no-repeat;background-size: contain;border:1px solid #111;border-radius:8px;"></div>--%>
-
 <div class="alert-wrapper d-flex flex-column-reverse pe-none"></div>
 
+<div class="modal fade" id="confirmRemove" tabindex="-1" aria-labelledby="confirmRemoveLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmRemoveLabel">Confirm</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to remove the <span></span>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary close-btn-confirmation" data-bs-dismiss="modal">Cancel
+                </button>
+                <button type="button" class="btn btn-danger remove-btn-confirmation" data-animal>Remove</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
@@ -81,6 +96,11 @@
         let card = document.createElement('div');
         card.classList.add('card', 'fadeIn', 'animated');
         card.setAttribute('data-animal', animal);
+
+        let removeBtn = document.createElement('button');
+        removeBtn.classList.add('btn', 'btn-close', 'btn-remove');
+        removeBtn.setAttribute('data-bs-toggle', 'modal');
+        removeBtn.setAttribute('data-bs-target', '#confirmRemove')
 
         let cardImg = document.createElement('img');
         cardImg.classList.add('card-img-top');
@@ -143,9 +163,9 @@
         cardBody.appendChild(foodDropdown);
         cardBody.appendChild(cardAnimBtns);
         cardBody.appendChild(cardView);
+        card.appendChild(removeBtn);
         card.appendChild(cardImg);
         card.appendChild(cardBody);
-
 
         cardFeed.addEventListener('click', (e) => {
             let animal = e.target.getAttribute('data-animal');
@@ -203,6 +223,13 @@
             });
         });
 
+        removeBtn.addEventListener('click', (e) => {
+            let parentCard = e.target.parentNode;
+            let animal = parentCard.getAttribute('data-animal');
+            $('.remove-btn-confirmation').attr('data-animal', animal);
+            $('.modal-body span')
+        });
+
         wrapper.appendChild(card);
     }
 
@@ -211,7 +238,7 @@
     });
 
 
-    $('.save').click(e => {
+    $('.save').click(() => {
         $.post('./save', {}, () => {
             createAlert('success', 'The game has been saved!')
         })
@@ -224,6 +251,18 @@
                 createAlert('success', animal + ' has been added!');
             } else {
                 createAlert('danger', animal + ' could not be added!');
+            }
+        });
+    });
+
+    $('.remove-btn-confirmation').click(e => {
+        let animal = e.target.getAttribute('data-animal');
+        $.post('./delete', {animal: animal}, data => {
+            if (data === 'success') {
+                e.target.setAttribute('data-animal', '');
+                document.querySelector('.close-btn-confirmation').click();
+                $('.card[data-animal="' + animal + '"]').remove();
+                createAlert('success', animal + ' has been deleted!');
             }
         });
     });
