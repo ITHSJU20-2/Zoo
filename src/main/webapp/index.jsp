@@ -4,7 +4,6 @@
 --%>
 <%@ page import="se.iths.grupp2.animals.Animal" %>
 <%@ page import="se.iths.grupp2.animals.Main" %>
-<%@ page import="java.util.UUID" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="https://kit.fontawesome.com/215fcec735.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <h1>ZooGame v0!</h1>
@@ -53,6 +53,8 @@
         </div>
     </div>
 </div>
+
+<button class="btn btn-dark dark-mode"><i class="fas fa-moon"></i></button>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
@@ -227,7 +229,7 @@
             let parentCard = e.target.parentNode;
             let animal = parentCard.getAttribute('data-animal');
             $('.remove-btn-confirmation').attr('data-animal', animal);
-            $('.modal-body span')
+            $('.modal-body span').text(animal);
         });
 
         wrapper.appendChild(card);
@@ -266,6 +268,14 @@
             }
         });
     });
+
+    $('.dark-mode').click(() => {
+        $('body').toggleClass('dark');
+        $('.dark-mode').toggleClass('btn-dark');
+        $('.dark-mode').toggleClass('btn-light');
+        $('.dark-mode i').toggleClass('fa-moon');
+        $('.dark-mode i').toggleClass('fa-sun');
+    })
 </script>
 </body>
 </html>
