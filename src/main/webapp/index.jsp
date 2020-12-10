@@ -28,6 +28,10 @@
     <option value="Lion" data-animal="Lion">Lion</option>
     <option value="Shark" data-animal="Shark">Shark</option>
     <option value="Goldfish" data-animal="Goldfish">Goldfish</option>
+    <option value="Wolf" data-animal="Wolf">Wolf</option>
+    <option value="Coyote" data-animal="Coyote">Coyote</option>
+    <option value="Dog" data-animal="Dog">Dog</option>
+
 
 </select>
 <button class="add-animal btn btn-primary">Add Animal</button>

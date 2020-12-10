@@ -1,6 +1,7 @@
 package se.iths.grupp2.animals.server;
 
 import se.iths.grupp2.animals.*;
+import sun.font.TrueTypeFont;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -43,7 +44,17 @@ public class AddPost extends HttpServlet {
             case "Lion":
                 animal = new Lion("Lion",Arrays.asList(Food.MEAT),0,true,"RoOAAAR");
                 break;
-                // Sean's Forest Creatures
+            // Sean's Canines
+            case "Wolf":
+                animal = new Wolf("Wolf",Arrays.asList(Food.MEAT),0,false,true);
+                break;
+            case "Coyote":
+                animal = new Coyote("Coyote",Arrays.asList(Food.MEAT),0,true,false);
+                break;
+            case "Dog":
+                animal = new Dog("Dog",Arrays.asList(Food.MEAT),0,true, true);
+                break;
+            //Tom's Apes
             case "Gorilla":
                 animal = new Gorilla("Gorilla", Arrays.asList(Food.MEAT, Food.FRUIT, Food.BERRY), 0, 0,
                         "Silver and black");
