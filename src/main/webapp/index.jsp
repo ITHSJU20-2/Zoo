@@ -23,6 +23,9 @@
     <option value="Gorilla" data-animal="Gorilla">Gorilla</option>
     <option value="Orangutan" data-animal="Orangutan">Orangutan</option>
     <option value="Chimpanzee" data-animal="Chimpanzee">Chimpanzee</option>
+    <option value="Cat" data-animal="Cat">Cat</option>
+    <option value="Lion" data-animal="Lion">Lion</option>
+
 </select>
 <button class="add-animal btn btn-primary">Add Animal</button>
 <a href="./settings.jsp" class="settings btn btn-primary" role="button">Settings</a>
