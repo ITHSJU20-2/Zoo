@@ -19,9 +19,9 @@ class CanineTest {
 
     @Test
     void isBarking() {
-        assertEquals(false, Wolf.isHowling());
-        assertEquals(true, Coyote.isHowling());
-        assertEquals(true, Dog.isHowling());
+        assertEquals(false, Wolf.isBarking());
+        assertEquals(true, Coyote.isBarking());
+        assertEquals(true, Dog.isBarking());
     }
 
     @Test
