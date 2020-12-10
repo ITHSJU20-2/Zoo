@@ -1,13 +1,18 @@
 package se.iths.grupp2.animals;
+
 import org.junit.jupiter.api.Test;
+import se.iths.grupp2.animals.animals.Food;
+import se.iths.grupp2.animals.animals.feline.Cat;
+import se.iths.grupp2.animals.animals.feline.Lion;
+
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class FelineTest {
 
-    private final Lion Lion = new Lion("Lion", Arrays.asList(Food.MEAT), 0, true, "ROooar");
-    private final Cat Cat = new Cat("Cat", Arrays.asList(Food.MEAT), 0, false, "Mjauu");
+    private final se.iths.grupp2.animals.animals.feline.Lion Lion = new Lion("Lion", Arrays.asList(Food.MEAT), 0, true, "ROooar");
+    private final se.iths.grupp2.animals.animals.feline.Cat Cat = new Cat("Cat", Arrays.asList(Food.MEAT), 0, false, "Mjauu");
 
     @Test
     void isWild() {

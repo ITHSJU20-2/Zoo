@@ -1,8 +1,11 @@
-package se.iths.grupp2.animals;
+package se.iths.grupp2.animals.animals.seacreatures;
+
+import se.iths.grupp2.animals.animals.Animal;
+import se.iths.grupp2.animals.animals.Food;
 
 import java.util.List;
 
-public abstract class SeaCreature extends Animal{
+public abstract class SeaCreature extends Animal {
 
     private boolean dangerous;
     private String teeth;

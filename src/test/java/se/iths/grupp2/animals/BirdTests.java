@@ -2,6 +2,10 @@ package se.iths.grupp2.animals;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+import se.iths.grupp2.animals.animals.Food;
+import se.iths.grupp2.animals.animals.bird.Eagle;
+import se.iths.grupp2.animals.animals.bird.Ostrich;
+import se.iths.grupp2.animals.animals.bird.Pigeon;
 
 import java.util.Arrays;
 import java.util.Collections;

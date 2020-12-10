@@ -1,4 +1,6 @@
-package se.iths.grupp2.animals;
+package se.iths.grupp2.animals.animals.ape;
+
+import se.iths.grupp2.animals.animals.Food;
 
 import java.util.List;
 
@@ -20,11 +22,11 @@ public class Chimpanzee extends Ape {
 
 
     public boolean feed(Food Food) {
-        if ((Food == se.iths.grupp2.animals.Food.FRUIT) || (Food == se.iths.grupp2.animals.Food.BERRY)) {
+        if ((Food == se.iths.grupp2.animals.animals.Food.FRUIT) || (Food == se.iths.grupp2.animals.animals.Food.BERRY)) {
             setXp(getXp() + 40);
             setSize(getSize() + 2);
             return true;
-        } else if (Food == se.iths.grupp2.animals.Food.MEAT) {
+        } else if (Food == se.iths.grupp2.animals.animals.Food.MEAT) {
             setXp(getXp() + 10);
             setSize(getSize() + 1);
             return true;

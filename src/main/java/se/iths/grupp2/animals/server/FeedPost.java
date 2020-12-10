@@ -1,8 +1,8 @@
 package se.iths.grupp2.animals.server;
 
-import se.iths.grupp2.animals.Animal;
-import se.iths.grupp2.animals.Food;
 import se.iths.grupp2.animals.Main;
+import se.iths.grupp2.animals.animals.Animal;
+import se.iths.grupp2.animals.animals.Food;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

@@ -1,4 +1,8 @@
-<%@ page import="se.iths.grupp2.animals.*" %><%--
+<%@ page import="se.iths.grupp2.animals.*" %>
+<%@ page import="se.iths.grupp2.animals.animals.Animal" %>
+<%@ page import="se.iths.grupp2.animals.animals.ape.Ape" %>
+<%@ page import="se.iths.grupp2.animals.animals.bird.Bird" %>
+<%@ page import="se.iths.grupp2.animals.animals.Food" %><%--
   User: tobiaswadseth
   Date: 2020-11-30
 --%>

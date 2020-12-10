@@ -2,8 +2,8 @@ package se.iths.grupp2.animals.storage;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import se.iths.grupp2.animals.Animal;
 import se.iths.grupp2.animals.Main;
+import se.iths.grupp2.animals.animals.Animal;
 
 import java.io.File;
 import java.io.FileNotFoundException;
