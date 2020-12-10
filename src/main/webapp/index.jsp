@@ -16,7 +16,8 @@
 <body>
 <h1>ZooGame v0!</h1>
 
-<select name="animal-dropdown" class="animal-dropdown">
+<select name="animal-dropdown" class="animal-dropdown form-select">
+    <option value="" disabled selected>Select animal</option>
     <option value="Eagle" data-animal="Eagle">Eagle</option>
     <option value="Ostrich" data-animal="Ostrich">Ostrich</option>
     <option value="Pigeon" data-animal="Pigeon">Pigeon</option>
@@ -116,9 +117,16 @@
         let cardTitle = document.createElement('h5');
         cardTitle.classList.add('card-title');
         cardTitle.innerText = animal;
+
         let foodDropdown = document.createElement('select');
-        foodDropdown.classList.add('card-food-dropdown');
+        foodDropdown.classList.add('card-food-dropdown', 'form-select');
         foodDropdown.setAttribute('data-animal', animal);
+
+        let defaultOption = document.createElement('option');
+        defaultOption.disabled = true;
+        defaultOption.selected = true;
+        defaultOption.setAttribute('value', '');
+        defaultOption.innerText = 'Select food';
 
         let vegetableOption = document.createElement('option');
         vegetableOption.setAttribute('value', 'vegetable');
@@ -136,6 +144,7 @@
         meatOption.setAttribute('value', 'meat');
         meatOption.innerText = 'Meat';
 
+        foodDropdown.appendChild(defaultOption);
         foodDropdown.appendChild(vegetableOption);
         foodDropdown.appendChild(fruitOption);
         foodDropdown.appendChild(berryOption);
@@ -174,6 +183,9 @@
         cardFeed.addEventListener('click', (e) => {
             let animal = e.target.getAttribute('data-animal');
             let food = $('.card-food-dropdown[data-animal="' + animal + '"]').val();
+            if (!food) {
+                return;
+            }
             $.post('./feed', {animal: animal, food: food}, data => {
                 if (data === 'success') {
                     if (animal === 'Gorilla') {
@@ -253,6 +265,9 @@
     });
     $('.add-animal').click(() => {
         let animal = $('.animal-dropdown').val();
+        if (!animal) {
+            return;
+        }
         $.post('./add', {animal: animal}, data => {
             if (data === 'success') {
                 createAnimalElem(animal);

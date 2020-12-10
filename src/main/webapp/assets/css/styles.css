@@ -5,7 +5,8 @@
     --card-secondary: #e6e6e6;
     --box-shadow-primary: #d9d9d9;
     --box-shadow-secondary: #ffffff;
-    --modal-border-color: #dee2e6;
+    --border-color: #dee2e6;
+    --select-arrow: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
 }
 
 .dark {
@@ -15,7 +16,8 @@
     --card-secondary: #2e2e2e;
     --box-shadow-primary: #2b2b2b;
     --box-shadow-secondary: #3b3b3b;
-    --modal-border-color: #606060;
+    --border-color: #606060;
+    --select-arrow: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
 }
 
 body {
@@ -28,11 +30,23 @@ body {
 }
 
 .modal-header {
-    border-bottom: 1px solid var(--modal-border-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .modal-footer {
-    border-top: 1px solid var(--modal-border-color);
+    border-top: 1px solid var(--border-color);
+}
+
+.form-select {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    background-image: var(--select-arrow);
+    border-color: var(--border-color);
+}
+
+.animal-dropdown {
+    width: 150px;
+    display: inline-block;
 }
 
 .animal-wrapper {
