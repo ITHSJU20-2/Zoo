@@ -10,7 +10,6 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 
 public class AddPost extends HttpServlet {
-
     /*
      * From the post body we get the name of the animal in a string and check if there exists an animal with that
      * name in the animal list in the AnimalController. In a switch statement we go through the name of the animal
@@ -37,17 +36,13 @@ public class AddPost extends HttpServlet {
                 animal = new Pigeon("Pigeon", Arrays.asList(Food.VEGETABLE), 0, true, "Kurrkurr");
                 break;
             // Marcus' Feline
-            // Sean's Canines
-            case "Wolf":
-                animal = new Wolf("Wolf", Arrays.asList(Food.MEAT), 0, false, true);
+            case "Cat":
+                animal = new Cat("Cat",Arrays.asList(Food.MEAT),0,false,"Mjaauu");
                 break;
-            case "Coyote":
-                animal = new Coyote("Coyote", Arrays.asList(Food.MEAT), 0, true, false);
+            case "Lion":
+                animal = new Lion("Lion",Arrays.asList(Food.MEAT),0,true,"RoOAAAR");
                 break;
-            case "Dog":
-                animal = new Dog("Dog", Arrays.asList(Food.MEAT), 0, true, true);
-                break;
-            //Thomas' Apes
+            // Sean's Forest Creatures
             case "Gorilla":
                 animal = new Gorilla("Gorilla", Arrays.asList(Food.MEAT, Food.FRUIT, Food.BERRY), 0, 0,
                         "Silver and black");
@@ -61,6 +56,14 @@ public class AddPost extends HttpServlet {
                         0, 0, "Black");
                 break;
             // Kabbe's Sea Creatures
+            case "Shark":
+                animal = new Shark("Shark", Arrays.asList(Food.MEAT), 0, false, "sharp",
+                        "stealthy", "CHEW");
+                break;
+            case "Goldfish":
+                animal = new Goldfish("Goldfish", Arrays.asList(Food.VEGETABLE), 0, false,
+                        "minimal", "small", true);
+                break;
             default:
                 throw new IllegalStateException("Unexpected value: " + animalName);
         }
