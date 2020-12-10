@@ -1,5 +1,6 @@
 package se.iths.grupp2.animals;
 
+import se.iths.grupp2.animals.animals.AnimalController;
 import se.iths.grupp2.animals.storage.DataManager;
 
 public class Main {

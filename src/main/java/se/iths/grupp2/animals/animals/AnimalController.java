@@ -1,4 +1,9 @@
-package se.iths.grupp2.animals;
+package se.iths.grupp2.animals.animals;
+
+import se.iths.grupp2.animals.animals.ape.Chimpanzee;
+import se.iths.grupp2.animals.animals.ape.Gorilla;
+import se.iths.grupp2.animals.animals.ape.Orangutan;
+import se.iths.grupp2.animals.animals.seacreatures.Shark;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,14 +1,20 @@
 package se.iths.grupp2.animals;
+
 import org.junit.jupiter.api.Test;
+import se.iths.grupp2.animals.animals.Food;
+import se.iths.grupp2.animals.animals.canine.Coyote;
+import se.iths.grupp2.animals.animals.canine.Dog;
+import se.iths.grupp2.animals.animals.canine.Wolf;
+
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CanineTest {
 
-    private final Wolf Wolf = new Wolf("Wolf", Arrays.asList(Food.MEAT), 0, false, true);
-    private final Coyote Coyote = new Coyote("Coyote", Arrays.asList(Food.MEAT), 0, true, false);
-    private final Dog Dog = new Dog("Dog", Arrays.asList(Food.MEAT), 0, true, true);
+    private final se.iths.grupp2.animals.animals.canine.Wolf Wolf = new Wolf("Wolf", Arrays.asList(Food.MEAT), 0, false, true);
+    private final se.iths.grupp2.animals.animals.canine.Coyote Coyote = new Coyote("Coyote", Arrays.asList(Food.MEAT), 0, true, false);
+    private final se.iths.grupp2.animals.animals.canine.Dog Dog = new Dog("Dog", Arrays.asList(Food.MEAT), 0, true, true);
 
     @Test
     void isHowling() {

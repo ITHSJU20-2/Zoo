@@ -1,6 +1,10 @@
 package se.iths.grupp2.animals;
 
 import org.junit.jupiter.api.*;
+import se.iths.grupp2.animals.animals.Food;
+import se.iths.grupp2.animals.animals.ape.Chimpanzee;
+import se.iths.grupp2.animals.animals.ape.Gorilla;
+import se.iths.grupp2.animals.animals.ape.Orangutan;
 
 import java.util.Arrays;
 

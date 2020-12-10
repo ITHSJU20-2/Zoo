@@ -2,7 +2,7 @@
   User: tobiaswadseth
   Date: 2020-11-27
 --%>
-<%@ page import="se.iths.grupp2.animals.Animal" %>
+<%@ page import="se.iths.grupp2.animals.animals.Animal" %>
 <%@ page import="se.iths.grupp2.animals.Main" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>

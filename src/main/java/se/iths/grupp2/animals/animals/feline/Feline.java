@@ -1,4 +1,8 @@
-package se.iths.grupp2.animals;
+package se.iths.grupp2.animals.animals.feline;
+
+import se.iths.grupp2.animals.animals.Animal;
+import se.iths.grupp2.animals.animals.Food;
+
 import java.util.List;
 
 public abstract class Feline extends Animal {

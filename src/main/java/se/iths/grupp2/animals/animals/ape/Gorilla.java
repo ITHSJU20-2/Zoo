@@ -1,4 +1,6 @@
-package se.iths.grupp2.animals;
+package se.iths.grupp2.animals.animals.ape;
+
+import se.iths.grupp2.animals.animals.Food;
 
 import java.util.List;
 
@@ -19,11 +21,11 @@ public class Gorilla extends Ape {
 
     //different food has different XP??
     public boolean feed(Food Food) {
-        if ((Food == se.iths.grupp2.animals.Food.MEAT) || (Food == se.iths.grupp2.animals.Food.FRUIT)) {
+        if ((Food == se.iths.grupp2.animals.animals.Food.MEAT) || (Food == se.iths.grupp2.animals.animals.Food.FRUIT)) {
             setXp(getXp() + 50);
             setSize(getSize() + 5);
             return true;
-        } else if (Food == se.iths.grupp2.animals.Food.BERRY) {
+        } else if (Food == se.iths.grupp2.animals.animals.Food.BERRY) {
             setXp(getXp() + 20);
             setSize(getSize() + 2);
             return true;

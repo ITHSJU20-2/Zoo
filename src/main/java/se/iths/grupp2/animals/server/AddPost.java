@@ -1,6 +1,21 @@
 package se.iths.grupp2.animals.server;
 
-import se.iths.grupp2.animals.*;
+import se.iths.grupp2.animals.Main;
+import se.iths.grupp2.animals.animals.Animal;
+import se.iths.grupp2.animals.animals.Food;
+import se.iths.grupp2.animals.animals.ape.Chimpanzee;
+import se.iths.grupp2.animals.animals.ape.Gorilla;
+import se.iths.grupp2.animals.animals.ape.Orangutan;
+import se.iths.grupp2.animals.animals.bird.Eagle;
+import se.iths.grupp2.animals.animals.bird.Ostrich;
+import se.iths.grupp2.animals.animals.bird.Pigeon;
+import se.iths.grupp2.animals.animals.canine.Coyote;
+import se.iths.grupp2.animals.animals.canine.Dog;
+import se.iths.grupp2.animals.animals.canine.Wolf;
+import se.iths.grupp2.animals.animals.feline.Cat;
+import se.iths.grupp2.animals.animals.feline.Lion;
+import se.iths.grupp2.animals.animals.seacreatures.Goldfish;
+import se.iths.grupp2.animals.animals.seacreatures.Shark;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

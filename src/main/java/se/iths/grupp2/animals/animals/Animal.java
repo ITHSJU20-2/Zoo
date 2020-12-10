@@ -1,4 +1,4 @@
-package se.iths.grupp2.animals;
+package se.iths.grupp2.animals.animals;
 
 import java.util.List;
 
