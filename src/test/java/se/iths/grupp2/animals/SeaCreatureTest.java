@@ -45,12 +45,12 @@ class SeaCreatureTest {
     @Test
     public void feedGoldFish (){
         Main.getController().feed(Goldfish, Food.BERRY);
-        assertEquals(2,2);
+        assertEquals(4,Goldfish.getXp());
     }
 
     @Test
     public void petGoldFish (){
         Main.getController().pet(Goldfish);
-        assertNotEquals(100,2);
+        assertNotEquals(100,Goldfish.getXp());
     }
 }
