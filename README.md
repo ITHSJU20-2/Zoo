@@ -1,5 +1,6 @@
 # Zoo Game
 ![](https://github.com/ITHSJU20-2/Zoo/workflows/Tests/badge.svg)
+![](https://img.shields.io/docker/cloud/build/tobiaswadseth/zoo-game)
 
 A web based zoo keeping "game" written in Java
 
@@ -21,4 +22,7 @@ A web based zoo keeping "game" written in Java
             1. Run the image with ports 4848 and 8080 set to your preference of open ports
         3. Deploy the built .war file located in the target folder through the admin interface
     * Using public docker image
-        1. TBA
+        1. Run "docker pull tobiaswadseth/zoo-game"
+        2. Through the docker client
+            1. Run the image with ports 4848 and 8080 set to your preference of open ports
+        3. Deploy the .war file located on the release page through the admin interface
