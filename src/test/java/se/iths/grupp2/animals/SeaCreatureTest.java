@@ -4,53 +4,59 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import se.iths.grupp2.animals.animals.Food;
+import se.iths.grupp2.animals.animals.seacreatures.Goldfish;
+import se.iths.grupp2.animals.animals.seacreatures.Shark;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class SeaCreatureTest {
-    private final Animal Goldfish = new Goldfish ("Goldfish", Arrays.asList(Food.BERRY), 0, false, "Small teeth", "Small fins", true);
-    private final Animal Shark = new Shark ("Shark", Arrays.asList(Food.MEAT), 0, true, "Lots of big teeth", "Delicious fins", "chews a lot");
+    private final Goldfish goldfish = new Goldfish("Goldfish", Arrays.asList(Food.BERRY), 0, false, "Small teeth",
+            "Small fins", true);
+    private final Shark shark = new Shark("Shark", Arrays.asList(Food.MEAT), 0, true, "Lots of big teeth", "Delicious" +
+            " fins", "chews a lot");
 
     @BeforeAll
-    static void startOfSeaCreaturesTest (){
+    static void startOfSeaCreaturesTest() {
         System.out.println("Will run before any other test");
 
     }
 
     @AfterAll
-    static void endOfTest (){
+    static void endOfTest() {
         System.out.println("All seacreatures has been tested");
     }
 
     @AfterEach
-    public void resetXP (){
-        Shark.setXp(0);
-        Goldfish.setXp(0);
+    public void resetXP () {
+        shark.setXp(0);
+        goldfish.setXp(0);
     }
 
     @Test
-    public void feedShark (){
-        Main.getController().feed(Shark, Food.BERRY);
-        assertEquals(0,Shark.getXp());
+    public void feedShark () {
+        Main.getController().feed(shark, Food.BERRY);
+        assertEquals(0, shark.getXp());
     }
 
     @Test
-    public void petShark (){
-        Main.getController().pet(Shark);
-        assertNotEquals(2,Shark.getXp() );
+    public void petShark () {
+        Main.getController().pet(shark);
+        assertNotEquals(2, shark.getXp());
     }
 
     @Test
-    public void feedGoldFish (){
-        Main.getController().feed(Goldfish, Food.BERRY);
-        assertEquals(4,Goldfish.getXp());
+    public void feedGoldFish () {
+        Main.getController().feed(goldfish, Food.BERRY);
+        assertEquals(4, goldfish.getXp());
     }
 
     @Test
-    public void petGoldFish (){
-        Main.getController().pet(Goldfish);
-        assertNotEquals(100,Goldfish.getXp());
+    public void petGoldFish () {
+        Main.getController().pet(goldfish);
+        assertNotEquals(100, goldfish.getXp());
     }
 }

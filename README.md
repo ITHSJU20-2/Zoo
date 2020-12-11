@@ -5,9 +5,20 @@ A web based zoo keeping "game" written in Java
 
 #### How to run the application (WIP):
 * Prerequisites
-    * A Payara Server
     * An IDE (Preferably IntelliJ)
     * Time
-1. Clone the project
-2. Ensure ZooGame:war is set to deploy in Deployment section of configurations in Payara
-3. Run Payara server and app should run in local URL
+* Locally
+    * Prerequisites
+        * A payara server
+    1. Change the build configuration of "Zoo Payara" to point to the location of your local payara server
+    2. Run the "Zoo Payara" build configuration
+* Through Docker
+    * Prerequisites
+        * A docker client
+    * Using the local Dockerfile
+        1. Run the "Zoo Docker" build configuration
+        2. Through the docker client
+            1. Run the image with ports 4848 and 8080 set to your preference of open ports
+        3. Deploy the built .war file located in the target folder through the admin interface
+    * Using public docker image
+        1. TBA
