@@ -17,5 +17,29 @@ public abstract class SeaCreature extends Animal {
         this.teeth = teeth;
         this.fins = fins;
     }
+
+    public boolean isDangerous() {
+        return dangerous;
+    }
+
+    public void setDangerous(boolean dangerous) {
+        this.dangerous = dangerous;
+    }
+
+    public String getTeeth() {
+        return teeth;
+    }
+
+    public void setTeeth(String teeth) {
+        this.teeth = teeth;
+    }
+
+    public String getFins() {
+        return fins;
+    }
+
+    public void setFins(String fins) {
+        this.fins = fins;
+    }
 }
 
