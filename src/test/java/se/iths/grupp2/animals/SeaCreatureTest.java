@@ -15,7 +15,7 @@ class SeaCreatureTest {
 
     @BeforeAll
     static void startOfSeaCreaturesTest (){
-        System.out.println("Will run before every test");
+        System.out.println("Will run before any other test");
 
     }
 
