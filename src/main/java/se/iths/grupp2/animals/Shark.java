@@ -22,4 +22,14 @@ public class Shark extends SeaCreature {
             System.out.println("Thank you for feeding me, soon I'll be big enough to eat you" );
         }
     }
+
+
+
+    public String getChew() {
+        return chew;
+    }
+
+    public void setChew(String chew) {
+        this.chew = chew;
+    }
 }
