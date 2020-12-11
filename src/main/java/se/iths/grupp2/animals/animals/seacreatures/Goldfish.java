@@ -12,4 +12,12 @@ public class Goldfish extends SeaCreature {
         super(name, likes, xp, dangerous, teeth, fins);
         this.dumb = dumb;
     }
+
+    public boolean isDumb() {
+        return dumb;
+    }
+
+    public void setDumb(boolean dumb) {
+        this.dumb = dumb;
+    }
 }
