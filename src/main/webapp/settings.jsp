@@ -1,4 +1,4 @@
-<%@ page import="se.iths.grupp2.animals.Main" %>
+<%@ page import="se.iths.grupp2.zoo.Main" %>
 <%@ page import="java.net.URISyntaxException" %><%--
   User: tobiaswadseth
   Date: 2020-12-02

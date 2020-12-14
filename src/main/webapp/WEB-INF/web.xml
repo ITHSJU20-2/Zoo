@@ -18,7 +18,7 @@
 
     <servlet>
         <servlet-name>Feed</servlet-name>
-        <servlet-class>se.iths.grupp2.animals.server.FeedPost</servlet-class>
+        <servlet-class>se.iths.grupp2.zoo.server.FeedPost</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -28,7 +28,7 @@
 
     <servlet>
         <servlet-name>Pet</servlet-name>
-        <servlet-class>se.iths.grupp2.animals.server.PetPost</servlet-class>
+        <servlet-class>se.iths.grupp2.zoo.server.PetPost</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -37,12 +37,12 @@
     </servlet-mapping>
 
     <listener>
-        <listener-class>se.iths.grupp2.animals.server.InitializationServlet</listener-class>
+        <listener-class>se.iths.grupp2.zoo.server.InitializationServlet</listener-class>
     </listener>
 
     <servlet>
         <servlet-name>Add</servlet-name>
-        <servlet-class>se.iths.grupp2.animals.server.AddPost</servlet-class>
+        <servlet-class>se.iths.grupp2.zoo.server.AddPost</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -52,7 +52,7 @@
 
     <servlet>
         <servlet-name>Delete</servlet-name>
-        <servlet-class>se.iths.grupp2.animals.server.DeletePost</servlet-class>
+        <servlet-class>se.iths.grupp2.zoo.server.DeletePost</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -62,7 +62,7 @@
 
     <servlet>
         <servlet-name>Save</servlet-name>
-        <servlet-class>se.iths.grupp2.animals.server.SavePost</servlet-class>
+        <servlet-class>se.iths.grupp2.zoo.server.SavePost</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -72,7 +72,7 @@
 
     <servlet>
         <servlet-name>Load</servlet-name>
-        <servlet-class>se.iths.grupp2.animals.server.LoadPost</servlet-class>
+        <servlet-class>se.iths.grupp2.zoo.server.LoadPost</servlet-class>
     </servlet>
 
     <servlet-mapping>

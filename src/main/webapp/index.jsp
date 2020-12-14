@@ -2,8 +2,8 @@
   User: tobiaswadseth
   Date: 2020-11-27
 --%>
-<%@ page import="se.iths.grupp2.animals.animals.Animal" %>
-<%@ page import="se.iths.grupp2.animals.Main" %>
+<%@ page import="se.iths.grupp2.zoo.animals.Animal" %>
+<%@ page import="se.iths.grupp2.zoo.Main" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -18,19 +18,29 @@
 
 <select name="animal-dropdown" class="animal-dropdown form-select">
     <option value="" disabled selected>Select animal</option>
-    <option value="Eagle" data-animal="Eagle">Eagle</option>
-    <option value="Ostrich" data-animal="Ostrich">Ostrich</option>
-    <option value="Pigeon" data-animal="Pigeon">Pigeon</option>
-    <option value="Gorilla" data-animal="Gorilla">Gorilla</option>
-    <option value="Orangutan" data-animal="Orangutan">Orangutan</option>
-    <option value="Chimpanzee" data-animal="Chimpanzee">Chimpanzee</option>
-    <option value="Cat" data-animal="Cat">Cat</option>
-    <option value="Lion" data-animal="Lion">Lion</option>
-    <option value="Shark" data-animal="Shark">Shark</option>
-    <option value="Goldfish" data-animal="Goldfish">Goldfish</option>
-    <option value="Wolf" data-animal="Wolf">Wolf</option>
-    <option value="Coyote" data-animal="Coyote">Coyote</option>
-    <option value="Dog" data-animal="Dog">Dog</option>
+    <optgroup label="Birds">
+        <option value="Eagle" data-animal="Eagle">Eagle</option>
+        <option value="Ostrich" data-animal="Ostrich">Ostrich</option>
+        <option value="Pigeon" data-animal="Pigeon">Pigeon</option>
+    </optgroup>
+    <optgroup label="Apes">
+        <option value="Gorilla" data-animal="Gorilla">Gorilla</option>
+        <option value="Orangutan" data-animal="Orangutan">Orangutan</option>
+        <option value="Chimpanzee" data-animal="Chimpanzee">Chimpanzee</option>
+    </optgroup>
+    <optgroup label="Feline">
+        <option value="Cat" data-animal="Cat">Cat</option>
+        <option value="Lion" data-animal="Lion">Lion</option>
+    </optgroup>
+    <optgroup label="Fish">
+        <option value="Shark" data-animal="Shark">Shark</option>
+        <option value="Goldfish" data-animal="Goldfish">Goldfish</option>
+    </optgroup>
+    <optgroup label="Canine">
+        <option value="Wolf" data-animal="Wolf">Wolf</option>
+        <option value="Coyote" data-animal="Coyote">Coyote</option>
+        <option value="Dog" data-animal="Dog">Dog</option>
+    </optgroup>
 
 
 </select>
