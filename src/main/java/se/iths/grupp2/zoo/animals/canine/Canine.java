@@ -6,7 +6,7 @@ import se.iths.grupp2.zoo.animals.Food;
 
 import java.util.List;
 
-public class Canine extends Animal {
+public abstract class Canine extends Animal {
 
     private boolean barking;
     private boolean howling;
