@@ -11,7 +11,7 @@ import java.net.URISyntaxException;
 public class InitializationServlet implements ServletContextListener {
 
     /*
-     * Whenever the server starts we try to load the gamedata from the animals.txt file.
+     * Whenever the server starts we try to load the gamedata from the animals.json file.
      */
     @Override
     public void contextInitialized(ServletContextEvent event) {
@@ -23,7 +23,7 @@ public class InitializationServlet implements ServletContextListener {
     }
 
     /*
-     * Whenever the server shuts down we try to save the gamedata to the animals.txt file.
+     * Whenever the server shuts down we try to save the gamedata to the animals.json file.
      */
     @Override
     public void contextDestroyed(ServletContextEvent event) {

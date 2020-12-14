@@ -11,7 +11,7 @@ import java.net.URISyntaxException;
 public class SavePost extends HttpServlet {
 
     /*
-     * Tries to save the current gamedata to the animals.txt file.
+     * Tries to save the current gamedata to the animals.json file.
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {

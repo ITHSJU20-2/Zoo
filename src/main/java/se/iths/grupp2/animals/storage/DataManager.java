@@ -1,6 +1,7 @@
 package se.iths.grupp2.animals.storage;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import se.iths.grupp2.animals.Main;
 import se.iths.grupp2.animals.animals.Animal;
@@ -19,10 +20,10 @@ import java.util.List;
 
 public class DataManager {
 
-    private final Gson gson = new Gson();
+    private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     /**
-     * Convert the animal List (AnimalController#animals) to a json string and save it to the animals.txt file if it
+     * Convert the animal List (AnimalController#animals) to a json string and save it to the animals.json file if it
      * could be found.
      *
      * @throws IOException        If the file is not found or the FileWriter cannot be created properly.
@@ -35,9 +36,9 @@ public class DataManager {
     }
 
     /**
-     * Save the json parameter to the animals.txt file if it could be found.
+     * Save the json parameter to the animals.json file if it could be found.
      *
-     * @param json The json string to save to the animals.txt file.
+     * @param json The json string to save to the animals.json file.
      * @throws IOException        If the file is not found or the FileWriter cannot be created properly.
      * @throws URISyntaxException If the resource cannot be turned into a URI.
      */
@@ -47,10 +48,10 @@ public class DataManager {
     }
 
     private void save(String json) throws URISyntaxException, IOException {
-        URL resource = Main.class.getClassLoader().getResource("animals.txt");
+        URL resource = Main.class.getClassLoader().getResource("animals.json");
         File file;
         if (resource == null) {
-            throw new FileNotFoundException("animals.txt not found");
+            throw new FileNotFoundException("animals.json not found");
         } else {
             file = new File(resource.toURI());
         }
@@ -77,7 +78,7 @@ public class DataManager {
     }
 
     /**
-     * From the animals.txt file (if found) load the data from it to the animal list in AnimalController
+     * From the animals.json file (if found) load the data from it to the animal list in AnimalController
      *
      * @throws URISyntaxException    If the resource cannot be turned into a URI.
      * @throws FileNotFoundException If the file is not found.
@@ -97,10 +98,10 @@ public class DataManager {
     }
 
     private String load() throws FileNotFoundException, URISyntaxException {
-        URL resource = Main.class.getClassLoader().getResource("animals.txt");
+        URL resource = Main.class.getClassLoader().getResource("animals.json");
         File file;
         if (resource == null) {
-            throw new FileNotFoundException("animals.txt not found");
+            throw new FileNotFoundException("animals.json not found");
         } else {
             file = new File(resource.toURI());
         }
